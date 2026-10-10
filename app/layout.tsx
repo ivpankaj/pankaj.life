@@ -39,6 +39,24 @@ export default function RootLayout({
       lang="en"
       className={`${fredoka.variable} ${jakarta.variable}`}
     >
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1TTZY42QEC"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-1TTZY42QEC');
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col relative bg-white text-slate-900 antialiased font-sans selection:bg-pink-500 selection:text-white">
         <PersonJsonLd />
         <WebSiteJsonLd />
