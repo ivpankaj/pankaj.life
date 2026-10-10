@@ -28,10 +28,10 @@ export function ContactForm() {
       {state?.success && (
         <div
           role="status"
-          className="p-4 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-200 flex items-start gap-3 animate-in fade-in"
+          className="p-4 rounded-3xl bg-emerald-500/20 border-3 border-emerald-400 text-emerald-100 flex items-start gap-3 shadow-lg"
         >
-          <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-          <p className="text-sm leading-relaxed">{state.message}</p>
+          <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0 mt-0.5" />
+          <p className="text-sm font-bold font-cartoon leading-relaxed">{state.message}</p>
         </div>
       )}
 
@@ -39,10 +39,10 @@ export function ContactForm() {
       {state && !state.success && (
         <div
           role="alert"
-          className="p-4 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-200 flex items-start gap-3 animate-in fade-in"
+          className="p-4 rounded-3xl bg-rose-500/20 border-3 border-rose-400 text-rose-100 flex items-start gap-3 shadow-lg"
         >
-          <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
-          <p className="text-sm leading-relaxed">{state.message}</p>
+          <AlertCircle className="w-6 h-6 text-rose-400 shrink-0 mt-0.5" />
+          <p className="text-sm font-bold font-cartoon leading-relaxed">{state.message}</p>
         </div>
       )}
 
@@ -50,9 +50,9 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="name"
-          className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2"
+          className="block text-xs font-black font-cartoon uppercase tracking-wider text-amber-300 mb-2"
         >
-          Your Name <span className="text-rose-400">*</span>
+          Your Name <span className="text-pink-400">*</span>
         </label>
         <input
           type="text"
@@ -60,10 +60,10 @@ export function ContactForm() {
           name="name"
           required
           placeholder="e.g. Alex Rivera"
-          className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:border-indigo-400 transition-all text-sm"
+          className="w-full px-5 py-3.5 rounded-2xl bg-[#0c1438] border-2 border-[#3b4c96] border-b-4 border-b-[#141b44] text-white font-medium placeholder-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-400/40 transition-all text-sm"
         />
         {state?.fieldErrors?.name && (
-          <p className="text-xs text-rose-400 mt-1.5">{state.fieldErrors.name}</p>
+          <p className="text-xs text-rose-400 font-bold font-cartoon mt-1.5">{state.fieldErrors.name}</p>
         )}
       </div>
 
@@ -71,9 +71,9 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="email"
-          className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2"
+          className="block text-xs font-black font-cartoon uppercase tracking-wider text-amber-300 mb-2"
         >
-          Your Email Address <span className="text-rose-400">*</span>
+          Your Email Address <span className="text-pink-400">*</span>
         </label>
         <input
           type="email"
@@ -81,10 +81,10 @@ export function ContactForm() {
           name="email"
           required
           placeholder="you@domain.com"
-          className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:border-indigo-400 transition-all text-sm"
+          className="w-full px-5 py-3.5 rounded-2xl bg-[#0c1438] border-2 border-[#3b4c96] border-b-4 border-b-[#141b44] text-white font-medium placeholder-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-400/40 transition-all text-sm"
         />
         {state?.fieldErrors?.email && (
-          <p className="text-xs text-rose-400 mt-1.5">{state.fieldErrors.email}</p>
+          <p className="text-xs text-rose-400 font-bold font-cartoon mt-1.5">{state.fieldErrors.email}</p>
         )}
       </div>
 
@@ -92,7 +92,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="subject"
-          className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2"
+          className="block text-xs font-black font-cartoon uppercase tracking-wider text-amber-300 mb-2"
         >
           Subject
         </label>
@@ -101,7 +101,7 @@ export function ContactForm() {
           id="subject"
           name="subject"
           placeholder="Collaboration, inquiry, or question"
-          className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:border-indigo-400 transition-all text-sm"
+          className="w-full px-5 py-3.5 rounded-2xl bg-[#0c1438] border-2 border-[#3b4c96] border-b-4 border-b-[#141b44] text-white font-medium placeholder-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-400/40 transition-all text-sm"
         />
       </div>
 
@@ -109,9 +109,9 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2"
+          className="block text-xs font-black font-cartoon uppercase tracking-wider text-amber-300 mb-2"
         >
-          Message <span className="text-rose-400">*</span>
+          Message <span className="text-pink-400">*</span>
         </label>
         <textarea
           id="message"
@@ -119,33 +119,33 @@ export function ContactForm() {
           required
           rows={5}
           placeholder="Share your thoughts, project inquiry, or message..."
-          className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:border-indigo-400 transition-all text-sm resize-y"
+          className="w-full px-5 py-3.5 rounded-2xl bg-[#0c1438] border-2 border-[#3b4c96] border-b-4 border-b-[#141b44] text-white font-medium placeholder-slate-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-400/40 transition-all text-sm resize-y"
         />
         {state?.fieldErrors?.message && (
-          <p className="text-xs text-rose-400 mt-1.5">{state.fieldErrors.message}</p>
+          <p className="text-xs text-rose-400 font-bold font-cartoon mt-1.5">{state.fieldErrors.message}</p>
         )}
       </div>
 
-      {/* Submit Button */}
+      {/* 3D Push Button */}
       <button
         type="submit"
         disabled={isPending}
-        className="pixar-button w-full py-3.5 rounded-xl text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+        className="pixar-btn-primary w-full py-4 text-base font-black text-white shadow-xl disabled:opacity-50"
       >
         {isPending ? (
           <>
-            <Loader2 className="w-4 h-4 animate-spin" />
+            <Loader2 className="w-5 h-5 animate-spin mr-2" />
             <span>Sending Message...</span>
           </>
         ) : (
           <>
-            <Send className="w-4 h-4" />
-            <span>Transmit Message</span>
+            <Send className="w-5 h-5 mr-2" />
+            <span>Transmit Message 🚀</span>
           </>
         )}
       </button>
 
-      <p className="text-[11px] text-center text-slate-400 font-mono">
+      <p className="text-xs text-center text-indigo-300 font-cartoon font-bold">
         Your email is kept confidential. Messages go directly to Pankaj Verma.
       </p>
     </form>

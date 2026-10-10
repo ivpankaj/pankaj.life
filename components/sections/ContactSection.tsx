@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, MessageSquare, Sparkles, Send, ShieldCheck } from "lucide-react";
+import { Mail, MessageSquare, Sparkles, ShieldCheck, Send } from "lucide-react";
 import { profile } from "@/data/profile";
 import { socials } from "@/data/socials";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -12,39 +12,39 @@ export function ContactSection() {
     <section id="contact" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
-          badge="Direct Connection"
+          badge="Direct Frequency"
           title="Connect With Me"
-          subtitle="Have a question, feedback on a project, or want to discuss modern web technologies? Drop a message or connect through my verified profiles."
+          subtitle="Have a question, feedback on a project, or want to build something extraordinary together? Let's chat!"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Info Column */}
           <div className="lg:col-span-5 space-y-6">
-            <GlassCard className="border-indigo-500/20">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+            <GlassCard variant="blue">
+              <div className="flex items-center gap-3.5 mb-6">
+                <div className="p-3.5 rounded-2xl bg-amber-400/20 text-amber-300 border-2 border-amber-400/40 shadow-lg">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">Let&apos;s Converse</h3>
-                  <p className="text-xs font-mono text-indigo-300">
+                  <h3 className="text-2xl font-black text-white font-cartoon">Let&apos;s Converse</h3>
+                  <p className="text-xs font-bold font-cartoon text-pink-300">
                     Reach Pankaj Verma (@{profile.handle})
                   </p>
                 </div>
               </div>
 
-              <p className="text-sm text-slate-300 leading-relaxed mb-6">
-                I am always curious to talk about Next.js architectures, modern front-end engineering, creative UI ideas, and web experimentation.
+              <p className="text-sm text-slate-200 font-medium leading-relaxed mb-6">
+                I am always excited to discuss Next.js architectures, creative front-end design, web animation experiments, and collaboration opportunities.
               </p>
 
               {profile.email && (
-                <div className="p-4 rounded-xl bg-slate-950/70 border border-white/10 mb-6">
-                  <span className="text-[11px] font-mono text-slate-400 block mb-1">
+                <div className="p-4 rounded-2xl bg-[#0b1030] border-2 border-[#37498c] border-b-4 border-b-[#12183c] mb-6 shadow-inner">
+                  <span className="text-[11px] font-bold font-cartoon text-amber-300 block mb-1 uppercase tracking-wider">
                     Direct Email
                   </span>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="text-sm font-semibold text-indigo-300 hover:text-white font-mono transition-colors"
+                    className="text-base font-black text-white hover:text-pink-300 font-cartoon transition-colors"
                   >
                     {profile.email}
                   </a>
@@ -52,8 +52,8 @@ export function ContactSection() {
               )}
 
               <div className="space-y-3">
-                <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
-                  Verified Social Channels
+                <span className="text-xs font-black font-cartoon uppercase tracking-wider text-indigo-300 block">
+                  Verified Hangouts
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {socials.slice(0, 4).map((s) => (
@@ -62,9 +62,9 @@ export function ContactSection() {
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/60 border border-white/10 hover:border-indigo-400/40 text-slate-300 hover:text-white transition-all text-xs"
+                      className="flex items-center gap-2.5 p-3 rounded-2xl bg-[#141d48] border-2 border-[#334484] border-b-4 border-b-[#0e1434] text-white hover:border-pink-400 hover:scale-105 active:translate-y-1 transition-all text-xs font-bold font-cartoon"
                     >
-                      <BrandIcon name={s.id} size={16} />
+                      <BrandIcon name={s.id} size={18} />
                       <span className="truncate">{s.name}</span>
                     </a>
                   ))}
@@ -72,20 +72,20 @@ export function ContactSection() {
               </div>
             </GlassCard>
 
-            <div className="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 text-xs text-indigo-200 flex items-center gap-3">
-              <ShieldCheck className="w-5 h-5 text-indigo-400 shrink-0" />
+            <div className="p-4 rounded-2xl bg-[#1e2a63]/80 border-2 border-[#4357a8] text-xs font-cartoon font-bold text-indigo-200 flex items-center gap-3 shadow-lg">
+              <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
               <span>
-                Protected with honeypot spam detection and verified domain SSL on pankaj.life.
+                Protected with honeypot spam protection &amp; verified domain SSL on pankaj.life.
               </span>
             </div>
           </div>
 
           {/* Right Form Column */}
           <div className="lg:col-span-7">
-            <GlassCard className="border-white/15">
-              <div className="flex items-center gap-2 mb-6">
-                <MessageSquare className="w-5 h-5 text-indigo-400" />
-                <h3 className="text-lg font-bold text-white">Send a Message</h3>
+            <GlassCard variant="purple">
+              <div className="flex items-center gap-2.5 mb-6">
+                <MessageSquare className="w-6 h-6 text-pink-400" />
+                <h3 className="text-2xl font-black text-white font-cartoon">Send a Message</h3>
               </div>
               <ContactForm />
             </GlassCard>

@@ -8,8 +8,7 @@ import {
   Target,
   ArrowRight,
   ShieldCheck,
-  Globe,
-  Layers,
+  Star,
 } from "lucide-react";
 import { profile } from "@/data/profile";
 import { constructMetadata } from "@/lib/metadata";
@@ -35,23 +34,23 @@ export default function AboutPage() {
         />
 
         {/* Persona Spotlight Card */}
-        <GlassCard className="border-indigo-500/30">
+        <GlassCard variant="blue">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-4 text-center md:text-left">
-              <div className="w-24 h-24 mx-auto md:mx-0 rounded-3xl bg-gradient-to-tr from-indigo-500 via-rose-500 to-amber-400 p-[2.5px] shadow-2xl shadow-indigo-500/30 mb-4">
-                <div className="w-full h-full bg-slate-950 rounded-[22px] flex items-center justify-center font-black text-4xl text-white">
+              <div className="w-24 h-24 mx-auto md:mx-0 rounded-3xl bg-gradient-to-tr from-amber-400 via-pink-500 to-indigo-600 p-[2.5px] shadow-2xl shadow-pink-500/40 mb-4 animate-toy-bob">
+                <div className="w-full h-full bg-[#1e1b4b] rounded-[22px] flex items-center justify-center font-black text-4xl text-white font-cartoon">
                   P
                 </div>
               </div>
-              <h2 className="text-2xl font-black text-white">{profile.name}</h2>
-              <p className="text-sm font-mono text-indigo-300">@{profile.handle}</p>
-              <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 font-mono">
+              <h2 className="text-3xl font-black text-white font-cartoon">{profile.name}</h2>
+              <p className="text-sm font-bold font-cartoon text-pink-300">@{profile.handle}</p>
+              <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/20 border-2 border-emerald-400/40 text-xs text-emerald-300 font-cartoon font-bold">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Active Builder</span>
               </div>
             </div>
 
-            <div className="md:col-span-8 space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <div className="md:col-span-8 space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
               <p>{profile.aboutIntro}</p>
               <p>{profile.subheading}</p>
             </div>
@@ -61,36 +60,36 @@ export default function AboutPage() {
         {/* Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Engineering Approach */}
-          <GlassCard className="border-rose-500/20 space-y-4">
+          <GlassCard variant="purple" className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
+              <div className="p-3 rounded-2xl bg-purple-500/20 text-purple-300 border-2 border-purple-400/40">
                 <Code className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">My Approach to Building</h3>
+              <h3 className="text-2xl font-black text-white font-cartoon">My Approach to Building</h3>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-200 leading-relaxed font-medium">
               {profile.approach}
             </p>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-200 leading-relaxed font-medium">
               I prioritize clean architectures with Next.js Server Components, strict type safety, zero unnecessary client bundles, and tactile UI micro-interactions inspired by Pixar storytelling.
             </p>
           </GlassCard>
 
           {/* Technology Interests */}
-          <GlassCard className="border-cyan-500/20 space-y-4">
+          <GlassCard variant="blue" className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+              <div className="p-3 rounded-2xl bg-cyan-500/20 text-cyan-300 border-2 border-cyan-400/40">
                 <Compass className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Technology Focus Areas</h3>
+              <h3 className="text-2xl font-black text-white font-cartoon">Technology Focus Areas</h3>
             </div>
             <ul className="space-y-3">
               {profile.interests.map((interest, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-3 text-sm text-slate-300"
+                  className="flex items-start gap-3 text-sm text-slate-200 font-medium"
                 >
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 mt-2 shrink-0" />
+                  <Star className="w-4 h-4 text-amber-400 fill-amber-400 mt-1 shrink-0" />
                   <span>{interest}</span>
                 </li>
               ))}
@@ -98,30 +97,30 @@ export default function AboutPage() {
           </GlassCard>
 
           {/* Future Horizons */}
-          <GlassCard className="border-amber-500/20 space-y-4">
+          <GlassCard variant="orange" className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <div className="p-3 rounded-2xl bg-amber-500/20 text-amber-300 border-2 border-amber-400/40">
                 <Target className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Future Goals</h3>
+              <h3 className="text-2xl font-black text-white font-cartoon">Future Goals</h3>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-200 leading-relaxed font-medium">
               {profile.futureGoals}
             </p>
           </GlassCard>
 
           {/* Verification & Transparency */}
-          <GlassCard className="border-indigo-500/20 space-y-4">
+          <GlassCard variant="blue" className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              <div className="p-3 rounded-2xl bg-indigo-500/20 text-indigo-300 border-2 border-indigo-400/40">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Truthful Portfolio Standard</h3>
+              <h3 className="text-2xl font-black text-white font-cartoon">Truthful Portfolio Standard</h3>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-200 leading-relaxed font-medium">
               This portfolio presents only verified facts. Unverified claims, exaggerated metrics, and fake titles are strictly omitted.
             </p>
-            <div className="pt-2 text-xs font-mono text-indigo-300">
+            <div className="pt-2 text-xs font-cartoon font-bold text-amber-300">
               Official Hub: https://pankaj.life
             </div>
           </GlassCard>
@@ -131,14 +130,14 @@ export default function AboutPage() {
         <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
           <Link
             href="/projects"
-            className="pixar-button px-6 py-3 rounded-2xl text-sm font-bold text-white flex items-center gap-2 cursor-pointer"
+            className="pixar-btn-primary px-7 py-3.5 text-sm font-black text-white flex items-center gap-2 cursor-pointer shadow-lg"
           >
             <span>Explore Projects</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             href="/contact"
-            className="pixar-button-secondary px-6 py-3 rounded-2xl text-sm font-semibold text-slate-200 cursor-pointer"
+            className="pixar-btn-secondary px-7 py-3.5 text-sm font-black text-white cursor-pointer"
           >
             <span>Connect With Me</span>
           </Link>

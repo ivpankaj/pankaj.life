@@ -11,6 +11,7 @@ import {
   Sparkles,
   ShieldCheck,
   Info,
+  Rocket,
 } from "lucide-react";
 import { projects } from "@/data/projects";
 import { constructMetadata } from "@/lib/metadata";
@@ -65,40 +66,40 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         <div>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-2 text-xs font-black font-cartoon text-amber-300 hover:text-white transition-colors group bg-[#16204c] px-4 py-2 rounded-full border border-indigo-400/30"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to all projects</span>
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
+            <span>Back to All Projects</span>
           </Link>
         </div>
 
         {/* Hero Card */}
-        <GlassCard className="border-indigo-500/30">
+        <GlassCard variant="blue">
           <div className="space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+              <span className="px-3.5 py-1 rounded-full text-xs font-black font-cartoon uppercase tracking-wider bg-indigo-600 text-white border-2 border-indigo-400 shadow">
                 {project.category} • {project.year}
               </span>
               {project.isSample ? (
-                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-amber-300 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold font-cartoon text-amber-300 bg-amber-500/20 border-2 border-amber-400/40 px-3 py-1 rounded-full">
                   <Info className="w-3.5 h-3.5" />
                   Sample Concept Template
                 </span>
               ) : (
-                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold font-cartoon text-emerald-300 bg-emerald-500/20 border-2 border-emerald-400/40 px-3 py-1 rounded-full">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  Verified Personal Project
+                  Verified Work
                 </span>
               )}
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-cartoon">
               {project.name}
             </h1>
 
-            <p className="text-lg text-indigo-200 font-mono">{project.tagline}</p>
+            <p className="text-lg text-amber-300 font-cartoon font-bold">{project.tagline}</p>
 
-            <p className="text-base text-slate-300 leading-relaxed pt-2">
+            <p className="text-base text-slate-200 leading-relaxed font-medium pt-2">
               {project.longDescription}
             </p>
 
@@ -109,8 +110,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   href={project.liveUrl}
                   target={project.liveUrl.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="pixar-button px-6 py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center gap-2"
+                  className="pixar-btn-primary px-7 py-3.5 text-sm font-black text-white flex items-center gap-2 shadow-lg"
                 >
+                  <Rocket className="w-4 h-4" />
                   <span>Launch Live Project</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
@@ -120,7 +122,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="pixar-button-secondary px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white flex items-center gap-2"
+                  className="pixar-btn-secondary px-6 py-3.5 text-sm font-black text-white flex items-center gap-2"
                 >
                   <BrandIcon name="github" size={16} />
                   <span>View Source Repository</span>
@@ -132,30 +134,30 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
         {/* Technical Architecture */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <GlassCard className="border-rose-500/20 space-y-4">
+          <GlassCard variant="purple" className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
-                <Cpu className="w-5 h-5" />
+              <div className="p-3 rounded-2xl bg-purple-500/20 text-purple-300 border-2 border-purple-400/40">
+                <Cpu className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">System Architecture</h3>
+              <h3 className="text-2xl font-black text-white font-cartoon">System Architecture</h3>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-200 leading-relaxed font-medium">
               {project.architecture}
             </p>
           </GlassCard>
 
-          <GlassCard className="border-cyan-500/20 space-y-4">
+          <GlassCard variant="orange" className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                <Layers className="w-5 h-5" />
+              <div className="p-3 rounded-2xl bg-amber-500/20 text-amber-300 border-2 border-amber-400/40">
+                <Layers className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Technology Stack</h3>
+              <h3 className="text-2xl font-black text-white font-cartoon">Technology Stack</h3>
             </div>
             <div className="flex flex-wrap gap-2 pt-2">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 rounded-xl text-xs font-mono text-slate-200 bg-white/5 border border-white/10 flex items-center gap-2"
+                  className="px-3.5 py-1.5 rounded-full text-xs font-bold font-cartoon text-white bg-[#191538] border-2 border-white/20 flex items-center gap-2 shadow-sm"
                 >
                   <BrandIcon name={tech} size={15} />
                   <span>{tech}</span>
@@ -166,17 +168,17 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </div>
 
         {/* Key Features */}
-        <GlassCard className="border-amber-500/20 space-y-6">
+        <GlassCard variant="blue" className="space-y-6">
           <div className="flex items-center gap-3">
-            <div className="p-3 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
-              <Sparkles className="w-5 h-5" />
+            <div className="p-3 rounded-2xl bg-amber-400/20 text-amber-300 border-2 border-amber-400/40">
+              <Sparkles className="w-6 h-6 fill-amber-300" />
             </div>
-            <h3 className="text-xl font-bold text-white">Key Capabilities & Features</h3>
+            <h3 className="text-2xl font-black text-white font-cartoon">Key Capabilities & Features</h3>
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {project.features.map((feat, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <li key={idx} className="flex items-start gap-3 text-sm text-slate-200 font-medium">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                 <span>{feat}</span>
               </li>
             ))}
