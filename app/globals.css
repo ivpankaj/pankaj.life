@@ -1,19 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b102b;
-  --foreground: #f8fafc;
+  --background: #ffffff;
+  --foreground: #0f172a;
   --font-cartoon: var(--font-fredoka), system-ui, cursive, sans-serif;
   --font-ui: var(--font-jakarta), system-ui, sans-serif;
 
   /* Disney-Pixar Saturated Toy Palette */
-  --toy-navy: #0d1438;
-  --toy-sky: #0ea5e9;
-  --toy-indigo: #4338ca;
-  --toy-purple: #8b5cf6;
+  --toy-sky: #0284c7;
+  --toy-indigo: #4f46e5;
+  --toy-purple: #9333ea;
   --toy-pink: #ec4899;
   --toy-orange: #f97316;
-  --toy-yellow: #fbbf24;
+  --toy-yellow: #f59e0b;
   --toy-green: #10b981;
   --toy-cyan: #06b6d4;
 }
@@ -25,12 +24,12 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: #ffffff;
+  color: #0f172a;
   font-family: var(--font-ui);
   overflow-x: hidden;
   min-height: 100vh;
@@ -42,17 +41,6 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   letter-spacing: -0.01em;
 }
 
-/* 3D Cartoon Pop Text Effect */
-.cartoon-title {
-  font-family: var(--font-cartoon);
-  text-shadow: 0 3px 0 #1e1b4b, 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-.cartoon-title-pop {
-  font-family: var(--font-cartoon);
-  text-shadow: 0 4px 0 #312e81, 0 8px 0 #1e1b4b, 0 12px 24px rgba(79, 70, 229, 0.45);
-}
-
 /* =========================================================================
    PIXAR 3D CARTOON TACTILE BUTTONS (Pillowy, Clickable, Playful 3D Bevels)
    ========================================================================= */
@@ -62,7 +50,7 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   background: linear-gradient(180deg, #ec4899 0%, #db2777 50%, #be185d 100%);
   border: 3px solid #f472b6;
   border-bottom: 7px solid #831843;
-  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.45), inset 0 2px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.6);
   border-radius: 22px;
   font-weight: 700;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,18 +58,19 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: #ffffff;
 }
 
 .pixar-btn-primary:hover {
   transform: translateY(-2px);
   border-bottom-width: 8px;
-  box-shadow: 0 14px 30px rgba(236, 72, 153, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 14px 30px rgba(236, 72, 153, 0.45), inset 0 2px 0 rgba(255, 255, 255, 0.8);
 }
 
 .pixar-btn-primary:active {
   transform: translateY(4px);
   border-bottom-width: 3px;
-  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.25);
 }
 
 .pixar-btn-secondary {
@@ -89,7 +78,7 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   background: linear-gradient(180deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
   border: 3px solid #818cf8;
   border-bottom: 7px solid #312e81;
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.5);
   border-radius: 22px;
   font-weight: 700;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -97,18 +86,19 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: #ffffff;
 }
 
 .pixar-btn-secondary:hover {
   transform: translateY(-2px);
   border-bottom-width: 8px;
-  box-shadow: 0 14px 30px rgba(99, 102, 241, 0.55), inset 0 2px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: 0 14px 30px rgba(99, 102, 241, 0.45), inset 0 2px 0 rgba(255, 255, 255, 0.7);
 }
 
 .pixar-btn-secondary:active {
   transform: translateY(4px);
   border-bottom-width: 3px;
-  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
 }
 
 .pixar-btn-gold {
@@ -116,17 +106,17 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   background: linear-gradient(180deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
   border: 3px solid #fbbf24;
   border-bottom: 7px solid #78350f;
-  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.6);
   border-radius: 22px;
   font-weight: 700;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  color: #ffffff;
 }
 
 .pixar-btn-gold:hover {
   transform: translateY(-2px);
   border-bottom-width: 8px;
-  box-shadow: 0 14px 30px rgba(245, 158, 11, 0.55);
 }
 
 .pixar-btn-gold:active {
@@ -134,39 +124,15 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   border-bottom-width: 3px;
 }
 
-.pixar-btn-cyan {
-  font-family: var(--font-cartoon);
-  background: linear-gradient(180deg, #06b6d4 0%, #0891b2 50%, #0e7490 100%);
-  border: 3px solid #38bdf8;
-  border-bottom: 7px solid #164e63;
-  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.5);
-  border-radius: 22px;
-  font-weight: 700;
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-
-.pixar-btn-cyan:hover {
-  transform: translateY(-2px);
-  border-bottom-width: 8px;
-}
-
-.pixar-btn-cyan:active {
-  transform: translateY(4px);
-  border-bottom-width: 3px;
-}
-
 /* =========================================================================
-   PIXAR CARTOON CLAYMORPHIC CARDS (Chunky, Inflatable, Soft 3D Lighting)
+   PIXAR CARTOON CLAYMORPHIC CARDS FOR WHITE BACKGROUND
    ========================================================================= */
 
 .pixar-card {
-  background: linear-gradient(160deg, #18224d 0%, #11183c 50%, #0d122e 100%);
-  border: 3px solid #3b4d8c;
-  border-bottom: 8px solid #1e285a;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 
-              inset 0 3px 0 rgba(255, 255, 255, 0.2),
-              inset 0 -3px 0 rgba(0, 0, 0, 0.4);
+  background: #ffffff;
+  border: 3.5px solid #e0e7ff;
+  border-bottom: 8px solid #c7d2fe;
+  box-shadow: 0 16px 35px rgba(79, 70, 229, 0.08), inset 0 2px 0 rgba(255, 255, 255, 0.8);
   border-radius: 28px;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
@@ -174,49 +140,41 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
 
 .pixar-card:hover {
   transform: translateY(-5px);
-  border-color: #6366f1;
-  border-bottom-color: #3730a3;
-  box-shadow: 0 25px 50px rgba(12, 18, 55, 0.6), 
-              0 0 35px rgba(99, 102, 241, 0.3),
-              inset 0 3px 0 rgba(255, 255, 255, 0.35);
+  border-color: #f472b6;
+  border-bottom-color: #db2777;
+  box-shadow: 0 22px 45px rgba(236, 72, 153, 0.16);
 }
 
 .pixar-card-purple {
-  background: linear-gradient(160deg, #26184d 0%, #19103c 100%);
-  border: 3px solid #6d4fc7;
-  border-bottom: 8px solid #3a2280;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), inset 0 3px 0 rgba(255, 255, 255, 0.25);
+  background: #ffffff;
+  border: 3.5px solid #f3e8ff;
+  border-bottom: 8px solid #d8b4fe;
+  box-shadow: 0 16px 35px rgba(168, 85, 247, 0.08);
   border-radius: 28px;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .pixar-card-purple:hover {
   transform: translateY(-5px);
-  border-color: #a855f7;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(168, 85, 247, 0.35);
+  border-color: #c084fc;
+  border-bottom-color: #9333ea;
+  box-shadow: 0 22px 45px rgba(168, 85, 247, 0.16);
 }
 
 .pixar-card-orange {
-  background: linear-gradient(160deg, #3d2012 0%, #251208 100%);
-  border: 3px solid #b45309;
-  border-bottom: 8px solid #78350f;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), inset 0 3px 0 rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  border: 3.5px solid #ffedd5;
+  border-bottom: 8px solid #fdba74;
+  box-shadow: 0 16px 35px rgba(249, 115, 22, 0.08);
   border-radius: 28px;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Playful Cartoon Pills & Badges */
-.pixar-badge {
-  font-family: var(--font-cartoon);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 16px;
-  border-radius: 9999px;
-  font-weight: 700;
-  font-size: 13px;
-  background: #1e295d;
-  border: 2px solid #4338ca;
-  border-bottom: 4px solid #1e1b4b;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 1.5px 0 rgba(255, 255, 255, 0.25);
+.pixar-card-orange:hover {
+  transform: translateY(-5px);
+  border-color: #fb923c;
+  border-bottom-color: #ea580c;
+  box-shadow: 0 22px 45px rgba(249, 115, 22, 0.16);
 }
 
 /* Playful Cartoon Floating Animations */
@@ -225,7 +183,7 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-14px) rotate(2deg);
+    transform: translateY(-12px) rotate(2deg);
   }
 }
 
@@ -234,7 +192,7 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(12px) rotate(-2deg);
+    transform: translateY(10px) rotate(-2deg);
   }
 }
 
@@ -258,17 +216,6 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   }
 }
 
-@keyframes pulsePlanetRing {
-  0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.6));
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(0 0 30px rgba(244, 63, 94, 0.9));
-    transform: scale(1.04);
-  }
-}
-
 .animate-toy-bob {
   animation: toyBob 6s ease-in-out infinite;
 }
@@ -285,11 +232,6 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   animation: starTwinkleJoy 3.5s ease-in-out infinite;
 }
 
-.animate-planet-ring {
-  animation: pulsePlanetRing 5s ease-in-out infinite;
-}
-
-/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -297,8 +239,7 @@ h1, h2, h3, h4, h5, h6, .font-cartoon {
   .animate-toy-bob,
   .animate-toy-bob-reverse,
   .animate-cloud-slow,
-  .animate-star-joy,
-  .animate-planet-ring {
+  .animate-star-joy {
     animation: none !important;
   }
   .pixar-btn-primary:hover,

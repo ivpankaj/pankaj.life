@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ExternalLink, Sparkles } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { technologies, techCategories } from "@/data/technologies";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { BrandIcon } from "@/components/ui/BrandIcon";
@@ -15,15 +15,11 @@ export function TechUniverseSection() {
       : technologies.filter((t) => t.categoryId === activeCategory);
 
   return (
-    <section id="tech" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="tech" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader
-          badge="Toolbox & Skills"
-          title="Technology Universe"
-          subtitle="Explore the powerful engines, languages, and creative platforms powering my digital builds."
-        />
+        <SectionHeader title="Technology Universe" />
 
-        {/* 3D Cartoon Filter Tabs */}
+        {/* 3D Filter Tabs */}
         <div className="flex items-center justify-center gap-2.5 flex-wrap mb-14">
           {techCategories.map((category) => {
             const isSelected = activeCategory === category.id;
@@ -34,8 +30,8 @@ export function TechUniverseSection() {
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-black font-cartoon transition-all duration-150 cursor-pointer ${
                   isSelected
-                    ? "bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 border-2 border-yellow-200 border-b-6 border-b-amber-800 shadow-lg scale-105"
-                    : "bg-[#182353] text-indigo-200 hover:text-white hover:bg-[#202f6e] border-2 border-[#36498c] border-b-4 border-b-[#111a40]"
+                    ? "bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 border-2 border-yellow-200 border-b-6 border-b-amber-800 shadow-md scale-105"
+                    : "bg-slate-100 text-slate-700 hover:text-slate-900 hover:bg-slate-200 border-2 border-slate-200 border-b-4 border-b-slate-300"
                 }`}
               >
                 {category.name}
@@ -54,37 +50,37 @@ export function TechUniverseSection() {
               <div>
                 <div className="flex items-start justify-between mb-4">
                   <div
-                    className="p-3.5 rounded-2xl bg-[#0e163b] border-2 border-white/20 shadow-lg group-hover:rotate-6 transition-transform"
-                    style={{ borderColor: `${tech.color}60` }}
+                    className="p-3.5 rounded-2xl bg-slate-50 border-2 border-slate-200 shadow-md group-hover:rotate-6 transition-transform"
+                    style={{ borderColor: `${tech.color}40` }}
                   >
-                    <BrandIcon name={tech.icon} size={30} className="text-white" />
+                    <BrandIcon name={tech.icon} size={30} />
                   </div>
                   <a
                     href={tech.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Official documentation for ${tech.name}`}
-                    className="p-2 rounded-xl bg-white/10 hover:bg-pink-500 hover:text-white text-indigo-300 transition-colors"
+                    className="p-2 rounded-xl bg-slate-100 hover:bg-pink-500 hover:text-white text-slate-500 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
 
-                <h3 className="text-lg font-black text-white font-cartoon group-hover:text-amber-300 transition-colors">
+                <h3 className="text-xl font-black text-slate-900 font-cartoon group-hover:text-pink-600 transition-colors">
                   {tech.name}
                 </h3>
-                <span className="inline-block mt-1 mb-2 px-2.5 py-0.5 rounded-full text-[10px] font-bold font-cartoon uppercase tracking-wider bg-indigo-950/80 text-cyan-300 border border-cyan-400/30">
+                <span className="inline-block mt-1 mb-2 px-2.5 py-0.5 rounded-full text-[11px] font-bold font-cartoon uppercase tracking-wider bg-slate-100 text-indigo-700 border border-slate-200">
                   {tech.categoryName}
                 </span>
 
-                <p className="text-xs text-slate-300 font-medium leading-relaxed mt-1">
+                <p className="text-xs text-slate-600 font-medium leading-relaxed mt-1">
                   {tech.description}
                 </p>
               </div>
 
-              {/* Colorful Bottom Toy Glow Indicator */}
+              {/* Bottom Line Indicator */}
               <div
-                className="w-full h-1.5 mt-5 rounded-full opacity-75 group-hover:opacity-100 transition-opacity"
+                className="w-full h-1.5 mt-5 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"
                 style={{
                   background: `linear-gradient(90deg, ${tech.color}, #f472b6)`,
                 }}

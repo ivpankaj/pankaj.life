@@ -22,7 +22,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0f1738",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -37,9 +37,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fredoka.variable} ${jakarta.variable} dark`}
+      className={`${fredoka.variable} ${jakarta.variable}`}
     >
-      <body className="min-h-screen flex flex-col relative bg-[#0b102b] text-slate-100 antialiased font-sans selection:bg-pink-500 selection:text-white">
+      <body className="min-h-screen flex flex-col relative bg-white text-slate-900 antialiased font-sans selection:bg-pink-500 selection:text-white">
         <PersonJsonLd />
         <WebSiteJsonLd />
         <BackgroundCosmos />

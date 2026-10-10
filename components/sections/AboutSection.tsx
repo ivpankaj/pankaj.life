@@ -6,7 +6,6 @@ import {
   Code,
   Target,
   ArrowRight,
-  ShieldCheck,
   Star,
 } from "lucide-react";
 import { profile } from "@/data/profile";
@@ -15,65 +14,47 @@ import { GlassCard } from "@/components/ui/GlassCard";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="about" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader
-          badge="Story & Mission"
-          title="About Pankaj Verma"
-          subtitle="Get to know the explorer behind the screen — curiosity, creative architecture, and a love for animated digital design."
-        />
+        <SectionHeader title="About Pankaj Verma" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Persona Card */}
           <div className="lg:col-span-7 space-y-6">
             <GlassCard variant="blue">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-3xl bg-gradient-to-tr from-amber-400 via-pink-500 to-indigo-600 p-[2.5px] shadow-xl shadow-pink-500/30">
-                  <div className="w-full h-full bg-[#1e1b4b] rounded-[21px] flex items-center justify-center font-black text-2xl text-white font-cartoon">
+                <div className="w-16 h-16 rounded-3xl bg-gradient-to-tr from-amber-400 via-pink-500 to-indigo-600 p-[2.5px] shadow-lg shadow-pink-500/20">
+                  <div className="w-full h-full bg-white rounded-[21px] flex items-center justify-center font-black text-2xl text-slate-900 font-cartoon">
                     P
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-white font-cartoon flex items-center gap-2">
+                  <h3 className="text-2xl font-black text-slate-900 font-cartoon flex items-center gap-2">
                     {profile.name}
-                    <Sparkles className="w-5 h-5 text-amber-300 fill-amber-300" />
+                    <Sparkles className="w-5 h-5 text-amber-500 fill-amber-500" />
                   </h3>
-                  <p className="text-xs text-indigo-300 font-bold font-cartoon">
-                    Online as {profile.displayName} (@{profile.handle})
+                  <p className="text-sm font-bold font-cartoon text-pink-600">
+                    @{profile.handle}
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+              <div className="space-y-4 text-slate-700 text-base leading-relaxed font-medium">
                 <p>{profile.aboutIntro}</p>
                 <p>{profile.approach}</p>
-              </div>
-
-              {/* Status Banner */}
-              <div className="mt-6 pt-6 border-t-2 border-indigo-900/60 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-3 h-3 rounded-full bg-emerald-400 animate-ping" />
-                  <span className="text-xs text-emerald-300 font-black font-cartoon">
-                    Current Focus: {profile.statusText}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 text-xs text-amber-300 font-black font-cartoon">
-                  <ShieldCheck className="w-4 h-4 text-amber-400" />
-                  <span>Canonical Domain: pankaj.life</span>
-                </div>
               </div>
             </GlassCard>
 
             {/* Approach to Engineering */}
             <GlassCard variant="purple">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-purple-500/20 text-purple-300 border-2 border-purple-400/40">
+                <div className="p-3 rounded-2xl bg-purple-100 text-purple-700 border-2 border-purple-200">
                   <Code className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-black text-white font-cartoon">My Approach to Building</h4>
+                <h4 className="text-xl font-black text-slate-900 font-cartoon">My Approach to Building</h4>
               </div>
-              <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-medium">
-                {profile.approach} Every digital space should feel joyful, responsive, and alive — pairing robust technical foundations with whimsical Pixar-inspired tactile micro-interactions.
+              <p className="text-base text-slate-700 leading-relaxed font-medium">
+                {profile.approach} Every digital space should feel joyful, responsive, and alive — pairing robust technical foundations with whimsical tactile micro-interactions.
               </p>
             </GlassCard>
           </div>
@@ -83,18 +64,18 @@ export function AboutSection() {
             {/* Core Tech Interests */}
             <GlassCard variant="blue">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-cyan-500/20 text-cyan-300 border-2 border-cyan-400/40">
+                <div className="p-3 rounded-2xl bg-cyan-100 text-cyan-700 border-2 border-cyan-200">
                   <Compass className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-black text-white font-cartoon">Technology Interests</h4>
+                <h4 className="text-xl font-black text-slate-900 font-cartoon">Technology Interests</h4>
               </div>
               <ul className="space-y-3">
                 {profile.interests.map((interest, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start gap-3 text-sm text-slate-200 font-medium"
+                    className="flex items-start gap-3 text-sm text-slate-700 font-bold font-cartoon"
                   >
-                    <Star className="w-4 h-4 text-amber-400 fill-amber-400 mt-1 shrink-0" />
+                    <Star className="w-4 h-4 text-amber-500 fill-amber-500 mt-0.5 shrink-0" />
                     <span>{interest}</span>
                   </li>
                 ))}
@@ -104,12 +85,12 @@ export function AboutSection() {
             {/* Future Goals */}
             <GlassCard variant="orange">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-amber-500/20 text-amber-300 border-2 border-amber-400/40">
+                <div className="p-3 rounded-2xl bg-amber-100 text-amber-700 border-2 border-amber-200">
                   <Target className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-black text-white font-cartoon">Future Horizons</h4>
+                <h4 className="text-xl font-black text-slate-900 font-cartoon">Future Horizons</h4>
               </div>
-              <p className="text-sm text-slate-200 leading-relaxed font-medium mb-4">
+              <p className="text-base text-slate-700 leading-relaxed font-medium mb-4">
                 {profile.futureGoals}
               </p>
               <Link
