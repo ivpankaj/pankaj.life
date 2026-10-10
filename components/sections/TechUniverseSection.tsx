@@ -15,7 +15,7 @@ export function TechUniverseSection() {
       : technologies.filter((t) => t.categoryId === activeCategory);
 
   return (
-    <section id="tech" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
+    <section id="tech" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white scroll-mt-28">
       <div className="max-w-7xl mx-auto">
         <SectionHeader title="Technology Universe" />
 
@@ -45,7 +45,7 @@ export function TechUniverseSection() {
           {filteredTech.map((tech) => (
             <div
               key={tech.id}
-              className="pixar-card p-6 group flex flex-col justify-between hover:scale-105 transition-all duration-200"
+              className="bg-white text-slate-900 border-4 border-slate-200 border-b-8 border-b-slate-300 shadow-xl shadow-slate-100/60 rounded-[28px] p-6 group flex flex-col justify-between hover:border-pink-300 hover:border-b-pink-400 hover:scale-105 transition-all duration-200"
             >
               <div>
                 <div className="flex items-start justify-between mb-4">

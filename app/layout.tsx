@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fredoka, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { constructMetadata } from "@/lib/metadata";
 import { Navbar } from "@/components/layout/Navbar";
@@ -39,25 +40,22 @@ export default function RootLayout({
       lang="en"
       className={`${fredoka.variable} ${jakarta.variable}`}
     >
-      <head>
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-1TTZY42QEC"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'G-1TTZY42QEC');
-            `,
-          }}
-        />
-      </head>
       <body className="min-h-screen flex flex-col relative bg-white text-slate-900 antialiased font-sans selection:bg-pink-500 selection:text-white">
+        {/* Google Tag (gtag.js) via next/script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1TTZY42QEC"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-1TTZY42QEC');
+          `}
+        </Script>
+
         <PersonJsonLd />
         <WebSiteJsonLd />
         <BackgroundCosmos />

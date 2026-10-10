@@ -6,7 +6,7 @@ import { BrandIcon } from "@/components/ui/BrandIcon";
 
 export function SocialsUniverseSection() {
   return (
-    <section id="socials" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
+    <section id="socials" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white scroll-mt-28">
       <div className="max-w-7xl mx-auto">
         <SectionHeader title="Social Media Universe" />
 
@@ -17,7 +17,7 @@ export function SocialsUniverseSection() {
               href={platform.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="pixar-card p-6 sm:p-7 flex flex-col justify-between group hover:border-pink-400 hover:scale-105 transition-all duration-200 cursor-pointer"
+              className="bg-white text-slate-900 border-4 border-slate-200 border-b-8 border-b-slate-300 shadow-xl shadow-slate-100/60 rounded-[32px] p-6 sm:p-7 flex flex-col justify-between group hover:border-pink-300 hover:border-b-pink-400 hover:scale-105 transition-all duration-200 cursor-pointer"
             >
               <div>
                 {/* Header with Brand SVG & Handle */}

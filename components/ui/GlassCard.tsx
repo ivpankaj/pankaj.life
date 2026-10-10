@@ -13,26 +13,26 @@ export function GlassCard({
   variant = "blue",
   ...props
 }: GlassCardProps) {
-  const variantClass =
+  const variantStyles =
     variant === "purple"
-      ? "pixar-card-purple"
+      ? "bg-white text-slate-900 border-4 border-purple-200 border-b-8 border-b-purple-300 shadow-xl shadow-purple-100/60 hover:border-purple-400 hover:border-b-purple-500"
       : variant === "orange"
-      ? "pixar-card-orange"
-      : "pixar-card";
+      ? "bg-white text-slate-900 border-4 border-amber-200 border-b-8 border-b-amber-300 shadow-xl shadow-amber-100/60 hover:border-amber-400 hover:border-b-amber-500"
+      : "bg-white text-slate-900 border-4 border-indigo-200 border-b-8 border-b-indigo-300 shadow-xl shadow-indigo-100/60 hover:border-pink-300 hover:border-b-pink-400";
 
   return (
     <div
       className={cn(
-        variantClass,
-        "p-6 sm:p-8 relative overflow-hidden transition-all duration-200",
+        "rounded-[32px] p-6 sm:p-8 relative overflow-hidden transition-all duration-200 hover:-translate-y-1",
+        variantStyles,
         className
       )}
       {...props}
     >
-      {/* Glossy Curved Highlight on top */}
+      {/* Top Gloss Reflection */}
       <div
         aria-hidden="true"
-        className="absolute top-0 left-6 right-6 h-2 bg-gradient-to-r from-transparent via-white/25 to-transparent rounded-full blur-[1px] pointer-events-none"
+        className="absolute top-0 left-6 right-6 h-2 bg-gradient-to-r from-transparent via-white/80 to-transparent rounded-full blur-[1px] pointer-events-none"
       />
       {children}
     </div>

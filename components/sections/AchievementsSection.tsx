@@ -12,7 +12,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 
 export function AchievementsSection() {
   return (
-    <section id="achievements" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
+    <section id="achievements" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white scroll-mt-28">
       <div className="max-w-5xl mx-auto">
         <SectionHeader title="Technical Adventures" />
 

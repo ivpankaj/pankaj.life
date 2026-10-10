@@ -20,7 +20,7 @@ export function ProjectsSection() {
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
+    <section id="projects" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white scroll-mt-28">
       <div className="max-w-7xl mx-auto">
         <SectionHeader title="Projects & Digital Labs" />
 
@@ -47,7 +47,7 @@ export function ProjectsSection() {
           {filteredProjects.map((project) => (
             <article
               key={project.slug}
-              className="pixar-card p-6 sm:p-8 flex flex-col justify-between group hover:border-pink-400"
+              className="bg-white text-slate-900 border-4 border-indigo-200 border-b-8 border-b-indigo-300 shadow-xl shadow-indigo-100/60 rounded-[32px] p-6 sm:p-8 flex flex-col justify-between group hover:border-pink-300 hover:border-b-pink-400 transition-all"
             >
               {/* Card Header Screen Diorama */}
               <div className="mb-6 rounded-2xl bg-slate-50 border-3 border-slate-200 border-b-6 border-b-slate-300 overflow-hidden shadow-inner">

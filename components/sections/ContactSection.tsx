@@ -9,7 +9,7 @@ import { BrandIcon } from "@/components/ui/BrandIcon";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
+    <section id="contact" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white scroll-mt-28">
       <div className="max-w-7xl mx-auto">
         <SectionHeader title="Connect With Me" />
 
