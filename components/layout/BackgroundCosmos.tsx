@@ -6,87 +6,175 @@ export function BackgroundCosmos() {
       aria-hidden="true"
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none"
     >
-      {/* Deep atmospheric sky gradient base */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(99,102,241,0.22),rgba(15,23,42,0)_70%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_85%_35%,rgba(244,63,94,0.12),rgba(15,23,42,0)_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_15%_75%,rgba(56,189,248,0.15),rgba(15,23,42,0)_65%)]" />
+      {/* Saturated Cartoon Sky Gradients: Royal Twilight, Warm Aurora & Magenta Nebulas */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0c1236] via-[#121a48] to-[#090e28]" />
+      
+      {/* Pixar Magical Atmosphere Glows */}
+      <div className="absolute top-[-10%] left-[20%] w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-indigo-500/25 via-purple-500/25 to-pink-500/20 blur-[110px]" />
+      <div className="absolute top-[35%] right-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-amber-400/20 via-orange-500/20 to-rose-500/15 blur-[120px]" />
+      <div className="absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-cyan-400/20 via-blue-600/20 to-purple-600/15 blur-[130px]" />
 
-      {/* Floating Pixar-inspired glowing orbs */}
-      <div className="absolute top-[8%] left-[10%] w-96 h-96 rounded-full bg-gradient-to-tr from-indigo-600/20 via-purple-500/15 to-transparent blur-3xl animate-pulse-glow" />
+      {/* Fluffy Cartoon Clouds (Toy Story / Pixar sky motif) */}
+      <div className="absolute top-[12%] left-[-20%] w-[380px] opacity-25 animate-cloud-slow">
+        <svg viewBox="0 0 100 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20 35H80C86.6274 35 92 29.6274 92 23C92 16.5918 86.9749 11.3578 80.6278 11.0204C78.7188 4.71714 72.8988 0 66 0C61.4299 0 57.345 2.07921 54.6309 5.37894C51.6967 3.29267 48.0931 2 44.1754 2C35.8457 2 29.0224 8.42398 28.4069 16.6083C25.8601 15.5898 23.0118 15 20 15C8.9543 15 0 23.9543 0 35H20Z"
+            fill="url(#cloudGrad1)"
+          />
+          <defs>
+            <linearGradient id="cloudGrad1" x1="0" y1="0" x2="100" y2="40">
+              <stop stopColor="#a5b4fc" stopOpacity="0.8" />
+              <stop offset="1" stopColor="#818cf8" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
       <div
-        className="absolute top-[35%] right-[5%] w-[480px] h-[480px] rounded-full bg-gradient-to-bl from-rose-500/15 via-orange-500/10 to-transparent blur-3xl animate-pulse-glow"
-        style={{ animationDelay: "2.5s" }}
-      />
+        className="absolute top-[55%] left-[-30%] w-[460px] opacity-20 animate-cloud-slow"
+        style={{ animationDuration: "75s", animationDelay: "15s" }}
+      >
+        <svg viewBox="0 0 100 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20 35H80C86.6274 35 92 29.6274 92 23C92 16.5918 86.9749 11.3578 80.6278 11.0204C78.7188 4.71714 72.8988 0 66 0C61.4299 0 57.345 2.07921 54.6309 5.37894C51.6967 3.29267 48.0931 2 44.1754 2C35.8457 2 29.0224 8.42398 28.4069 16.6083C25.8601 15.5898 23.0118 15 20 15C8.9543 15 0 23.9543 0 35H20Z"
+            fill="url(#cloudGrad2)"
+          />
+          <defs>
+            <linearGradient id="cloudGrad2" x1="0" y1="0" x2="100" y2="40">
+              <stop stopColor="#f472b6" stopOpacity="0.6" />
+              <stop offset="1" stopColor="#c084fc" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* Cute Floating Cartoon Planet 1 (Saturn style with cartoon craters and 3D rings) */}
+      <div className="absolute top-28 right-[8%] w-64 h-64 opacity-50 animate-toy-bob">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Back of ring */}
+          <ellipse
+            cx="100"
+            cy="100"
+            rx="85"
+            ry="24"
+            stroke="url(#ringGradA)"
+            strokeWidth="9"
+            transform="rotate(-26 100 100)"
+            strokeDasharray="220 220"
+            strokeDashoffset="0"
+          />
+          {/* Main 3D Sphere Body */}
+          <circle cx="100" cy="100" r="48" fill="url(#planet3DGradA)" />
+          {/* Cartoon Shiny Specular Oval Highlight on top left */}
+          <ellipse cx="80" cy="76" rx="14" ry="7" fill="#ffffff" fillOpacity="0.45" transform="rotate(-30 80 76)" />
+          {/* Cute Cartoon Craters */}
+          <circle cx="112" cy="85" r="7" fill="#6d28d9" fillOpacity="0.4" />
+          <circle cx="120" cy="115" r="9" fill="#6d28d9" fillOpacity="0.35" />
+          <circle cx="85" cy="118" r="6" fill="#6d28d9" fillOpacity="0.4" />
+          {/* Front of ring passing in front */}
+          <ellipse
+            cx="100"
+            cy="100"
+            rx="85"
+            ry="24"
+            stroke="url(#ringGradA)"
+            strokeWidth="9"
+            transform="rotate(-26 100 100)"
+            strokeDasharray="220 220"
+            strokeDashoffset="220"
+          />
+          <defs>
+            <linearGradient id="planet3DGradA" x1="60" y1="60" x2="140" y2="140">
+              <stop stopColor="#c084fc" />
+              <stop offset="0.6" stopColor="#7c3aed" />
+              <stop offset="1" stopColor="#4c1d95" />
+            </linearGradient>
+            <linearGradient id="ringGradA" x1="20" y1="100" x2="180" y2="100">
+              <stop stopColor="#fbbf24" />
+              <stop offset="0.5" stopColor="#f43f5e" />
+              <stop offset="1" stopColor="#38bdf8" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* Cute Floating Cartoon Planet 2 (Candy Orange / Pink Moon) */}
       <div
-        className="absolute bottom-[15%] left-[25%] w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-cyan-500/15 via-indigo-600/15 to-transparent blur-3xl animate-pulse-glow"
-        style={{ animationDelay: "4s" }}
-      />
-
-      {/* Lightweight SVG Planetary Elements & Constellation Motifs */}
-      <svg
-        className="absolute top-20 right-[15%] w-72 h-72 opacity-25 animate-float-slow"
-        viewBox="0 0 200 200"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        className="absolute bottom-[22%] left-[5%] w-44 h-44 opacity-45 animate-toy-bob-reverse"
+        style={{ animationDelay: "2s" }}
       >
-        <circle cx="100" cy="100" r="50" fill="url(#planetGrad1)" />
-        <ellipse
-          cx="100"
-          cy="100"
-          rx="82"
-          ry="18"
-          stroke="url(#ringGrad1)"
-          strokeWidth="3.5"
-          transform="rotate(-28 100 100)"
-        />
-        <defs>
-          <linearGradient id="planetGrad1" x1="60" y1="60" x2="140" y2="140">
-            <stop stopColor="#818cf8" />
-            <stop offset="1" stopColor="#4338ca" />
-          </linearGradient>
-          <linearGradient id="ringGrad1" x1="20" y1="100" x2="180" y2="100">
-            <stop stopColor="#38bdf8" stopOpacity="0.8" />
-            <stop offset="0.5" stopColor="#f43f5e" stopOpacity="0.4" />
-            <stop offset="1" stopColor="#818cf8" stopOpacity="0.9" />
-          </linearGradient>
-        </defs>
-      </svg>
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="42" fill="url(#planet3DGradB)" />
+          {/* Glossy pill highlight */}
+          <ellipse cx="64" cy="62" rx="12" ry="6" fill="#ffffff" fillOpacity="0.5" transform="rotate(-30 64 62)" />
+          {/* Smiling Moon-spot craters */}
+          <circle cx="70" cy="95" r="8" fill="#ea580c" fillOpacity="0.4" />
+          <circle cx="98" cy="74" r="6" fill="#ea580c" fillOpacity="0.4" />
+          <circle cx="102" cy="100" r="5" fill="#ea580c" fillOpacity="0.35" />
+          <defs>
+            <linearGradient id="planet3DGradB" x1="45" y1="45" x2="115" y2="115">
+              <stop stopColor="#fde047" />
+              <stop offset="0.5" stopColor="#fb923c" />
+              <stop offset="1" stopColor="#e11d48" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
-      <svg
-        className="absolute bottom-[28%] left-[8%] w-48 h-48 opacity-20 animate-float-reverse"
-        viewBox="0 0 160 160"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="80" cy="80" r="38" fill="url(#planetGrad2)" />
-        <circle cx="120" cy="55" r="9" fill="#38bdf8" fillOpacity="0.6" />
-        <defs>
-          <linearGradient id="planetGrad2" x1="50" y1="50" x2="110" y2="110">
-            <stop stopColor="#fb7185" />
-            <stop offset="1" stopColor="#9333ea" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      {/* Decorative Constellation Stars */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-35"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="12%" cy="18%" r="1.5" fill="#ffffff" className="animate-twinkle" />
-        <circle cx="28%" cy="12%" r="2" fill="#38bdf8" className="animate-twinkle" style={{ animationDelay: "1s" }} />
-        <circle cx="45%" cy="22%" r="1.5" fill="#facc15" className="animate-twinkle" style={{ animationDelay: "2s" }} />
-        <circle cx="68%" cy="14%" r="2" fill="#fb7185" className="animate-twinkle" style={{ animationDelay: "0.5s" }} />
-        <circle cx="82%" cy="25%" r="1.5" fill="#ffffff" className="animate-twinkle" style={{ animationDelay: "1.8s" }} />
-        <circle cx="92%" cy="45%" r="2" fill="#38bdf8" className="animate-twinkle" style={{ animationDelay: "2.3s" }} />
-        <circle cx="20%" cy="58%" r="1.5" fill="#c084fc" className="animate-twinkle" style={{ animationDelay: "1.4s" }} />
-        <circle cx="35%" cy="80%" r="2" fill="#ffffff" className="animate-twinkle" style={{ animationDelay: "0.8s" }} />
-        <circle cx="75%" cy="72%" r="1.5" fill="#34d399" className="animate-twinkle" style={{ animationDelay: "2.6s" }} />
-        <circle cx="88%" cy="88%" r="2" fill="#fb7185" className="animate-twinkle" style={{ animationDelay: "1.1s" }} />
-      </svg>
-
-      {/* Subtle Grid Lattice for architectural tech feel */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
+      {/* Whimsical 4-Pointed Cartoon Sparkle Stars */}
+      <div className="absolute inset-0">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          {/* Star 1 (Gold) */}
+          <path
+            d="M 140 120 Q 140 140 160 140 Q 140 140 140 160 Q 140 140 120 140 Q 140 140 140 120 Z"
+            fill="#fbbf24"
+            className="animate-star-joy"
+            style={{ transformOrigin: "140px 140px", animationDelay: "0.2s" }}
+          />
+          {/* Star 2 (Pink) */}
+          <path
+            d="M 420 80 Q 420 95 435 95 Q 420 95 420 110 Q 420 95 405 95 Q 420 95 420 80 Z"
+            fill="#f472b6"
+            className="animate-star-joy"
+            style={{ transformOrigin: "420px 95px", animationDelay: "1.2s" }}
+          />
+          {/* Star 3 (Cyan) */}
+          <path
+            d="M 780 160 Q 780 180 800 180 Q 780 180 780 200 Q 780 180 760 180 Q 780 180 780 160 Z"
+            fill="#38bdf8"
+            className="animate-star-joy"
+            style={{ transformOrigin: "780px 180px", animationDelay: "2.1s" }}
+          />
+          {/* Star 4 (Mint) */}
+          <path
+            d="M 1020 90 Q 1020 105 1035 105 Q 1020 105 1020 120 Q 1020 105 1005 105 Q 1020 105 1020 90 Z"
+            fill="#34d399"
+            className="animate-star-joy"
+            style={{ transformOrigin: "1020px 105px", animationDelay: "0.8s" }}
+          />
+          {/* Star 5 (White) */}
+          <path
+            d="M 280 480 Q 280 495 295 495 Q 280 495 280 510 Q 280 495 265 495 Q 280 495 280 480 Z"
+            fill="#ffffff"
+            className="animate-star-joy"
+            style={{ transformOrigin: "280px 495px", animationDelay: "1.8s" }}
+          />
+          {/* Star 6 (Gold) */}
+          <path
+            d="M 880 520 Q 880 540 900 540 Q 880 540 880 560 Q 880 540 860 540 Q 880 540 880 520 Z"
+            fill="#fbbf24"
+            className="animate-star-joy"
+            style={{ transformOrigin: "880px 540px", animationDelay: "2.7s" }}
+          />
+          {/* Star 7 (Pink) */}
+          <path
+            d="M 1160 380 Q 1160 395 1175 395 Q 1160 395 1160 410 Q 1160 395 1145 395 Q 1160 395 1160 380 Z"
+            fill="#f472b6"
+            className="animate-star-joy"
+            style={{ transformOrigin: "1160px 395px", animationDelay: "1.5s" }}
+          />
+        </svg>
+      </div>
     </div>
   );
 }

@@ -160,3 +160,4 @@ npm run build
 2. Connect the repository on [Vercel](https://vercel.com) or [Cloudflare Pages](https://pages.cloudflare.com).
 3. Set the Custom Domain to `pankaj.life` with DNS A/CNAME records configured.
 4. Deploy! Next.js 16 will automatically build static pages, edge image routes, and server actions.
+# pankaj.life

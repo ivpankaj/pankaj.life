@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Fredoka, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "@/lib/metadata";
 import { Navbar } from "@/components/layout/Navbar";
@@ -7,20 +7,22 @@ import { Footer } from "@/components/layout/Footer";
 import { BackgroundCosmos } from "@/components/layout/BackgroundCosmos";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  variable: "--font-fredoka",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-jakarta",
   display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space",
-  display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 export const viewport: Viewport = {
-  themeColor: "#070a18",
+  themeColor: "#0f1738",
   width: "device-width",
   initialScale: 1,
 };
@@ -35,9 +37,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakarta.variable} ${spaceGrotesk.variable} dark`}
+      className={`${fredoka.variable} ${jakarta.variable} dark`}
     >
-      <body className="min-h-screen flex flex-col relative bg-[#070a18] text-slate-100 antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
+      <body className="min-h-screen flex flex-col relative bg-[#0b102b] text-slate-100 antialiased font-sans selection:bg-pink-500 selection:text-white">
         <PersonJsonLd />
         <WebSiteJsonLd />
         <BackgroundCosmos />

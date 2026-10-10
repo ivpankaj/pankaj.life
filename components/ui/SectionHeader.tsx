@@ -1,4 +1,5 @@
 import React from "react";
+import { Sparkles } from "lucide-react";
 
 interface SectionHeaderProps {
   badge: string;
@@ -19,19 +20,23 @@ export function SectionHeader({
         align === "center" ? "text-center max-w-3xl mx-auto" : "text-left max-w-2xl"
       }`}
     >
+      {/* 3D Cartoon Section Badge */}
       <div
-        className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-4 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 shadow-sm ${
+        className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-4 bg-[#1e295d] border-2 border-[#6366f1] border-b-4 border-b-[#1e1b4b] text-amber-300 shadow-md font-cartoon ${
           align === "center" ? "mx-auto" : ""
         }`}
       >
-        <span className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-indigo-400 animate-pulse" />
+        <Sparkles className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
         <span>{badge}</span>
       </div>
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
+
+      {/* Chunky Cartoon Heading */}
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4 font-cartoon drop-shadow-[0_3px_0_#1e1b4b]">
         {title}
       </h2>
+
       {subtitle && (
-        <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+        <p className="text-base sm:text-lg text-indigo-200/90 leading-relaxed font-medium">
           {subtitle}
         </p>
       )}

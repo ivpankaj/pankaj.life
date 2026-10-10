@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070a18;
-  --foreground: #f1f5f9;
-  --font-display: var(--font-jakarta), system-ui, sans-serif;
-  --font-body: var(--font-space), monospace, sans-serif;
-  
-  /* Pixar / Cosmic Color Palette */
-  --space-indigo: #0c102a;
-  --space-deep: #070a18;
-  --electric-blue: #38bdf8;
-  --cosmic-violet: #818cf8;
-  --sunset-coral: #fb7185;
-  --aurora-mint: #34d399;
-  --sun-gold: #fbbf24;
+  --background: #0b102b;
+  --foreground: #f8fafc;
+  --font-cartoon: var(--font-fredoka), system-ui, cursive, sans-serif;
+  --font-ui: var(--font-jakarta), system-ui, sans-serif;
+
+  /* Disney-Pixar Saturated Toy Palette */
+  --toy-navy: #0d1438;
+  --toy-sky: #0ea5e9;
+  --toy-indigo: #4338ca;
+  --toy-purple: #8b5cf6;
+  --toy-pink: #ec4899;
+  --toy-orange: #f97316;
+  --toy-yellow: #fbbf24;
+  --toy-green: #10b981;
+  --toy-cyan: #06b6d4;
 }
 
 @theme inline {
@@ -29,137 +31,279 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body);
+  font-family: var(--font-ui);
   overflow-x: hidden;
   min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+/* Headings use the rounded bubbly Pixar font */
+h1, h2, h3, h4, h5, h6, .font-cartoon {
+  font-family: var(--font-cartoon);
+  letter-spacing: -0.01em;
 }
 
-/* Custom Cosmic Glow & Pixar Glass Panels */
-.cosmic-glass {
-  background: rgba(15, 23, 42, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+/* 3D Cartoon Pop Text Effect */
+.cartoon-title {
+  font-family: var(--font-cartoon);
+  text-shadow: 0 3px 0 #1e1b4b, 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-.cosmic-glass-hover {
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+.cartoon-title-pop {
+  font-family: var(--font-cartoon);
+  text-shadow: 0 4px 0 #312e81, 0 8px 0 #1e1b4b, 0 12px 24px rgba(79, 70, 229, 0.45);
 }
 
-.cosmic-glass-hover:hover {
-  transform: translateY(-4px);
-  border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 25px 60px rgba(12, 16, 42, 0.6), 0 0 30px rgba(99, 102, 241, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+/* =========================================================================
+   PIXAR 3D CARTOON TACTILE BUTTONS (Pillowy, Clickable, Playful 3D Bevels)
+   ========================================================================= */
+
+.pixar-btn-primary {
+  font-family: var(--font-cartoon);
+  background: linear-gradient(180deg, #ec4899 0%, #db2777 50%, #be185d 100%);
+  border: 3px solid #f472b6;
+  border-bottom: 7px solid #831843;
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.45), inset 0 2px 0 rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  font-weight: 700;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-.cosmic-panel {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-}
-
-/* Radiant Pixar-inspired 3D Button */
-.pixar-button {
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.pixar-button:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 15px 35px -5px rgba(168, 85, 247, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.pixar-button-secondary {
-  background: rgba(30, 41, 59, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.pixar-button-secondary:hover {
-  background: rgba(51, 65, 85, 0.85);
-  border-color: rgba(255, 255, 255, 0.3);
+.pixar-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  border-bottom-width: 8px;
+  box-shadow: 0 14px 30px rgba(236, 72, 153, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.8);
 }
 
-/* Atmospheric Animations */
-@keyframes floatSlow {
+.pixar-btn-primary:active {
+  transform: translateY(4px);
+  border-bottom-width: 3px;
+  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.pixar-btn-secondary {
+  font-family: var(--font-cartoon);
+  background: linear-gradient(180deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
+  border: 3px solid #818cf8;
+  border-bottom: 7px solid #312e81;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 22px;
+  font-weight: 700;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pixar-btn-secondary:hover {
+  transform: translateY(-2px);
+  border-bottom-width: 8px;
+  box-shadow: 0 14px 30px rgba(99, 102, 241, 0.55), inset 0 2px 0 rgba(255, 255, 255, 0.7);
+}
+
+.pixar-btn-secondary:active {
+  transform: translateY(4px);
+  border-bottom-width: 3px;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+.pixar-btn-gold {
+  font-family: var(--font-cartoon);
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+  border: 3px solid #fbbf24;
+  border-bottom: 7px solid #78350f;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  font-weight: 700;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.pixar-btn-gold:hover {
+  transform: translateY(-2px);
+  border-bottom-width: 8px;
+  box-shadow: 0 14px 30px rgba(245, 158, 11, 0.55);
+}
+
+.pixar-btn-gold:active {
+  transform: translateY(4px);
+  border-bottom-width: 3px;
+}
+
+.pixar-btn-cyan {
+  font-family: var(--font-cartoon);
+  background: linear-gradient(180deg, #06b6d4 0%, #0891b2 50%, #0e7490 100%);
+  border: 3px solid #38bdf8;
+  border-bottom: 7px solid #164e63;
+  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 22px;
+  font-weight: 700;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.pixar-btn-cyan:hover {
+  transform: translateY(-2px);
+  border-bottom-width: 8px;
+}
+
+.pixar-btn-cyan:active {
+  transform: translateY(4px);
+  border-bottom-width: 3px;
+}
+
+/* =========================================================================
+   PIXAR CARTOON CLAYMORPHIC CARDS (Chunky, Inflatable, Soft 3D Lighting)
+   ========================================================================= */
+
+.pixar-card {
+  background: linear-gradient(160deg, #18224d 0%, #11183c 50%, #0d122e 100%);
+  border: 3px solid #3b4d8c;
+  border-bottom: 8px solid #1e285a;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 
+              inset 0 3px 0 rgba(255, 255, 255, 0.2),
+              inset 0 -3px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 28px;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.pixar-card:hover {
+  transform: translateY(-5px);
+  border-color: #6366f1;
+  border-bottom-color: #3730a3;
+  box-shadow: 0 25px 50px rgba(12, 18, 55, 0.6), 
+              0 0 35px rgba(99, 102, 241, 0.3),
+              inset 0 3px 0 rgba(255, 255, 255, 0.35);
+}
+
+.pixar-card-purple {
+  background: linear-gradient(160deg, #26184d 0%, #19103c 100%);
+  border: 3px solid #6d4fc7;
+  border-bottom: 8px solid #3a2280;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), inset 0 3px 0 rgba(255, 255, 255, 0.25);
+  border-radius: 28px;
+}
+
+.pixar-card-purple:hover {
+  transform: translateY(-5px);
+  border-color: #a855f7;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(168, 85, 247, 0.35);
+}
+
+.pixar-card-orange {
+  background: linear-gradient(160deg, #3d2012 0%, #251208 100%);
+  border: 3px solid #b45309;
+  border-bottom: 8px solid #78350f;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), inset 0 3px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+}
+
+/* Playful Cartoon Pills & Badges */
+.pixar-badge {
+  font-family: var(--font-cartoon);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 13px;
+  background: #1e295d;
+  border: 2px solid #4338ca;
+  border-bottom: 4px solid #1e1b4b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 1.5px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Playful Cartoon Floating Animations */
+@keyframes toyBob {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-12px) rotate(1.5deg);
+    transform: translateY(-14px) rotate(2deg);
   }
 }
 
-@keyframes floatReverse {
+@keyframes toyBobReverse {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(10px) rotate(-1.5deg);
+    transform: translateY(12px) rotate(-2deg);
   }
 }
 
-@keyframes pulseGlow {
+@keyframes cloudDriftSlow {
+  0% {
+    transform: translateX(-15%);
+  }
+  100% {
+    transform: translateX(115%);
+  }
+}
+
+@keyframes starTwinkleJoy {
   0%, 100% {
-    opacity: 0.4;
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.3) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulsePlanetRing {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.6));
     transform: scale(1);
   }
   50% {
-    opacity: 0.75;
-    transform: scale(1.08);
+    filter: drop-shadow(0 0 30px rgba(244, 63, 94, 0.9));
+    transform: scale(1.04);
   }
 }
 
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.2;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
+.animate-toy-bob {
+  animation: toyBob 6s ease-in-out infinite;
 }
 
-.animate-float-slow {
-  animation: floatSlow 7s ease-in-out infinite;
+.animate-toy-bob-reverse {
+  animation: toyBobReverse 7s ease-in-out infinite;
 }
 
-.animate-float-reverse {
-  animation: floatReverse 8s ease-in-out infinite;
+.animate-cloud-slow {
+  animation: cloudDriftSlow 50s linear infinite;
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 6s ease-in-out infinite;
+.animate-star-joy {
+  animation: starTwinkleJoy 3.5s ease-in-out infinite;
 }
 
-.animate-twinkle {
-  animation: twinkle 3s ease-in-out infinite;
+.animate-planet-ring {
+  animation: pulsePlanetRing 5s ease-in-out infinite;
 }
 
-/* Reduced Motion Override */
+/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .animate-float-slow,
-  .animate-float-reverse,
-  .animate-pulse-glow,
-  .animate-twinkle {
+  .animate-toy-bob,
+  .animate-toy-bob-reverse,
+  .animate-cloud-slow,
+  .animate-star-joy,
+  .animate-planet-ring {
     animation: none !important;
   }
-  .cosmic-glass-hover:hover,
-  .pixar-button:hover,
-  .pixar-button-secondary:hover {
+  .pixar-btn-primary:hover,
+  .pixar-btn-secondary:hover,
+  .pixar-card:hover {
     transform: none !important;
   }
 }

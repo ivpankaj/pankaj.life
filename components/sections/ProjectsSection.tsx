@@ -5,11 +5,9 @@ import Link from "next/link";
 import {
   ExternalLink,
   ArrowRight,
-  Sparkles,
-  Layers,
-  Terminal,
   ShieldCheck,
   Info,
+  Rocket,
 } from "lucide-react";
 import { projects, projectCategories, ProjectCategory } from "@/data/projects";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -28,21 +26,21 @@ export function ProjectsSection() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           badge="Featured Works"
-          title="Projects & Digital Labs"
-          subtitle="Explore digital products, architectural experiments, and software systems. Verified personal work is clearly noted alongside conceptual templates."
+          title="Digital Labs & Creations"
+          subtitle="Explore interactive applications, architectural tools, and software experiments designed for performance and wonder."
         />
 
-        {/* Category Filters */}
-        <div className="flex items-center justify-center gap-2 flex-wrap mb-12">
+        {/* 3D Category Filters */}
+        <div className="flex items-center justify-center gap-2.5 flex-wrap mb-14">
           {projectCategories.map((category) => (
             <button
               key={category}
               type="button"
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
+              className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-black font-cartoon transition-all duration-150 cursor-pointer ${
                 selectedCategory === category
-                  ? "bg-gradient-to-r from-rose-500 to-indigo-600 text-white shadow-lg shadow-rose-500/25 border border-rose-400/40 font-semibold scale-105"
-                  : "bg-slate-900/60 text-slate-300 hover:text-white hover:bg-slate-800/80 border border-white/10"
+                  ? "bg-gradient-to-r from-pink-500 to-rose-600 text-white border-2 border-pink-300 border-b-6 border-b-pink-900 shadow-lg scale-105"
+                  : "bg-[#182353] text-indigo-200 hover:text-white hover:bg-[#202f6e] border-2 border-[#36498c] border-b-4 border-b-[#111a40]"
               }`}
             >
               {category}
@@ -55,47 +53,47 @@ export function ProjectsSection() {
           {filteredProjects.map((project) => (
             <article
               key={project.slug}
-              className="cosmic-glass cosmic-glass-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between border-white/15 relative overflow-hidden group"
+              className="pixar-card p-6 sm:p-8 flex flex-col justify-between group hover:border-pink-400"
             >
-              {/* Card Header Preview Mockup (Code-generated authentic UI diorama) */}
-              <div className="mb-6 rounded-2xl bg-slate-950/80 border border-white/10 overflow-hidden shadow-inner">
-                {/* Browser-style bar */}
-                <div className="px-4 py-3 bg-slate-900/90 border-b border-white/10 flex items-center justify-between">
+              {/* Card Header Screen Diorama (Pixar Toy Computer Screen) */}
+              <div className="mb-6 rounded-2xl bg-[#090e24] border-3 border-[#28376e] border-b-6 border-b-[#070b1c] overflow-hidden shadow-inner">
+                {/* Candy-button header bar */}
+                <div className="px-4 py-3 bg-[#111a42] border-b-2 border-[#28376e] flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-rose-500/80" />
-                    <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                    <span className="w-3.5 h-3.5 rounded-full bg-rose-500 shadow-sm border border-rose-300" />
+                    <span className="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-sm border border-yellow-200" />
+                    <span className="w-3.5 h-3.5 rounded-full bg-emerald-400 shadow-sm border border-emerald-200" />
                   </div>
-                  <span className="text-[11px] font-mono text-slate-400 truncate max-w-[200px]">
-                    {project.liveUrl?.replace("https://", "") || "localhost:3000"}
+                  <span className="text-xs font-bold font-cartoon text-indigo-300 truncate max-w-[200px]">
+                    {project.liveUrl?.replace("https://", "") || "pankaj.life"}
                   </span>
-                  <div className="w-10" />
+                  <Rocket className="w-4 h-4 text-pink-400" />
                 </div>
 
                 {/* Diorama Screen Content */}
-                <div className="p-6 relative bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40 min-h-[140px] flex flex-col justify-between">
+                <div className="p-6 relative bg-gradient-to-br from-[#101844] via-[#0b1030] to-[#18113c] min-h-[140px] flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-white/10 text-white border border-white/10">
+                    <span className="px-3 py-1 rounded-full text-xs font-black font-cartoon uppercase tracking-wider bg-indigo-600 text-white border-2 border-indigo-400 shadow">
                       {project.category}
                     </span>
                     {project.isSample ? (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-mono text-amber-300 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded">
-                        <Info className="w-3 h-3" />
+                      <span className="inline-flex items-center gap-1 text-xs font-bold font-cartoon text-amber-300 bg-amber-500/20 border-2 border-amber-400/40 px-2.5 py-0.5 rounded-full">
+                        <Info className="w-3.5 h-3.5" />
                         Sample Concept
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded">
-                        <ShieldCheck className="w-3 h-3" />
-                        Verified Personal Work
+                      <span className="inline-flex items-center gap-1 text-xs font-bold font-cartoon text-emerald-300 bg-emerald-500/20 border-2 border-emerald-400/40 px-2.5 py-0.5 rounded-full">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        Verified Work
                       </span>
                     )}
                   </div>
 
                   <div className="mt-4">
-                    <h4 className="text-xl font-extrabold text-white tracking-tight flex items-center gap-2">
+                    <h3 className="text-2xl font-black text-white font-cartoon tracking-tight group-hover:text-amber-300 transition-colors">
                       {project.name}
-                    </h4>
-                    <p className="text-xs text-indigo-300 font-mono mt-1">
+                    </h3>
+                    <p className="text-xs text-indigo-200 font-bold font-cartoon mt-1">
                       {project.tagline}
                     </p>
                   </div>
@@ -104,18 +102,18 @@ export function ProjectsSection() {
 
               {/* Project Body */}
               <div className="space-y-4 flex-1">
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-sm text-slate-200 font-medium leading-relaxed">
                   {project.description}
                 </p>
 
-                {/* Tech Badges */}
+                {/* Tech Pills */}
                 <div className="flex flex-wrap gap-2 pt-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 rounded-lg text-xs font-mono text-slate-300 bg-white/5 border border-white/10 flex items-center gap-1.5"
+                      className="px-3 py-1 rounded-full text-xs font-bold font-cartoon text-indigo-200 bg-[#16204a] border border-[#3b4c96] flex items-center gap-1.5 shadow-sm"
                     >
-                      <BrandIcon name={tech} size={13} className="text-slate-400" />
+                      <BrandIcon name={tech} size={13} className="text-slate-300" />
                       {tech}
                     </span>
                   ))}
@@ -123,13 +121,13 @@ export function ProjectsSection() {
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+              <div className="mt-8 pt-5 border-t-2 border-indigo-900/60 flex flex-wrap items-center justify-between gap-4">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-300 hover:text-white font-mono group/link"
+                  className="inline-flex items-center gap-1.5 text-xs font-black text-pink-400 hover:text-white font-cartoon transition-colors group/link"
                 >
                   <span>Explore Case Study & Architecture</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1.5 transition-transform" />
                 </Link>
 
                 <div className="flex items-center gap-2">
@@ -139,7 +137,7 @@ export function ProjectsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       title="View GitHub Repository"
-                      className="p-2 rounded-xl bg-slate-900 border border-white/10 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+                      className="p-2.5 rounded-2xl bg-[#1b2559] border-2 border-[#4357a8] border-b-4 border-b-[#12193e] text-white hover:border-pink-400 transition-all shadow-md active:translate-y-1"
                     >
                       <BrandIcon name="github" size={16} />
                     </a>
@@ -150,7 +148,7 @@ export function ProjectsSection() {
                       target={project.liveUrl.startsWith("http") ? "_blank" : undefined}
                       rel="noopener noreferrer"
                       title="Visit Live Application"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-400/30 text-xs font-semibold text-white transition-colors"
+                      className="pixar-btn-primary px-4 py-2 text-xs font-black text-white flex items-center gap-1.5"
                     >
                       <span>Live Preview</span>
                       <ExternalLink className="w-3.5 h-3.5" />
