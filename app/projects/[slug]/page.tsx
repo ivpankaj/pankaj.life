@@ -9,19 +9,15 @@ import {
   Cpu,
   Layers,
   Sparkles,
-  Rocket,
 } from "lucide-react";
 import { projects } from "@/data/projects";
 import { constructMetadata } from "@/lib/metadata";
-import { GlassCard } from "@/components/ui/GlassCard";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { ProjectJsonLd } from "@/components/seo/JsonLd";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
-
-export const instant = false;
 
 export async function generateStaticParams() {
   return projects.map((p) => ({
@@ -45,7 +41,7 @@ export async function generateMetadata({
 
   return constructMetadata({
     title: project.name,
-    description: project.description,
+    description: `${project.description} Built with ${project.technologies.slice(0, 3).join(", ")} by Pankaj Verma (@ivpankaj).`,
     canonicalUrl: `/projects/${project.slug}`,
   });
 }
@@ -59,114 +55,127 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
+    <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-[var(--theme-bg)] min-h-screen">
       <ProjectJsonLd project={project} />
       <div className="max-w-4xl mx-auto space-y-10">
         {/* Back Link */}
         <div>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-xs font-black font-cartoon text-slate-700 hover:text-pink-600 transition-colors group bg-slate-100 px-4 py-2 rounded-full border border-slate-200"
+            className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-colors group bg-neutral-900 px-4 py-2 rounded-full border border-white/10"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
             <span>Back to All Projects</span>
           </Link>
         </div>
 
         {/* Hero Card */}
-        <GlassCard variant="blue">
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight font-cartoon">
+        <div className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-10 space-y-6 hover:border-white/[0.2] transition-colors">
+          <div className="text-xs font-mono text-neutral-500">
+            {project.category} • {project.year} • {project.status}
+          </div>
+
+          <div>
+            <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
               {project.name}
             </h1>
-
-            <p className="text-lg text-pink-600 font-cartoon font-bold">{project.tagline}</p>
-
-            <p className="text-base text-slate-700 leading-relaxed font-medium pt-2">
-              {project.longDescription}
+            <p className="text-sm font-mono text-neutral-400 mt-2">
+              {project.tagline}
             </p>
-
-            {/* Quick Actions */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target={project.liveUrl.startsWith("http") ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  className="pixar-btn-primary px-7 py-3.5 text-sm font-black text-white flex items-center gap-2 shadow-md"
-                >
-                  <Rocket className="w-4 h-4" />
-                  <span>Launch Live Project</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              )}
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="pixar-btn-secondary px-6 py-3.5 text-sm font-black text-white flex items-center gap-2"
-                >
-                  <BrandIcon name="github" size={16} />
-                  <span>View Source Repository</span>
-                </a>
-              )}
-            </div>
           </div>
-        </GlassCard>
 
-        {/* Technical Architecture */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <GlassCard variant="purple" className="space-y-4">
+          <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-normal">
+            {project.longDescription}
+          </p>
+
+          {/* Quick Actions */}
+          <div className="pt-4 flex flex-wrap items-center gap-4 border-t border-white/[0.08]">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target={project.liveUrl.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors inline-flex items-center gap-2 shadow-sm"
+              >
+                <span>Launch Live Application</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full border border-white/[0.2] bg-neutral-900 text-white font-medium text-xs hover:bg-neutral-800 transition-colors inline-flex items-center gap-2"
+              >
+                <BrandIcon name="github" size={16} />
+                <span>View Source Repository</span>
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* Technical Architecture & Technologies */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 space-y-4 hover:border-white/[0.2] transition-colors">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-purple-100 text-purple-700 border-2 border-purple-200">
-                <Cpu className="w-6 h-6" />
+              <div className="p-2.5 rounded-xl bg-neutral-900 border border-white/10 text-white">
+                <Cpu className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-black text-slate-900 font-cartoon">System Architecture</h3>
+              <h3 className="text-lg font-bold text-white tracking-tight">
+                System Architecture
+              </h3>
             </div>
-            <p className="text-base text-slate-700 leading-relaxed font-medium">
+            <p className="text-sm text-neutral-300 leading-relaxed font-normal">
               {project.architecture}
             </p>
-          </GlassCard>
+          </div>
 
-          <GlassCard variant="orange" className="space-y-4">
+          <div className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 space-y-4 hover:border-white/[0.2] transition-colors">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-amber-100 text-amber-700 border-2 border-amber-200">
-                <Layers className="w-6 h-6" />
+              <div className="p-2.5 rounded-xl bg-neutral-900 border border-white/10 text-white">
+                <Layers className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-black text-slate-900 font-cartoon">Technology Stack</h3>
+              <h3 className="text-lg font-bold text-white tracking-tight">
+                Technology Stack
+              </h3>
             </div>
-            <div className="flex flex-wrap gap-2 pt-2">
+            <div className="flex flex-wrap gap-2 pt-1">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-bold font-cartoon text-slate-800 bg-slate-100 border border-slate-200 flex items-center gap-2 shadow-sm"
+                  className="px-3 py-1.5 rounded-md text-xs font-mono text-neutral-300 bg-neutral-900 border border-white/[0.08] flex items-center gap-1.5"
                 >
-                  <BrandIcon name={tech} size={15} />
+                  <BrandIcon name={tech} size={14} className="text-neutral-400" />
                   <span>{tech}</span>
                 </span>
               ))}
             </div>
-          </GlassCard>
+          </div>
         </div>
 
         {/* Key Features */}
-        <GlassCard variant="blue" className="space-y-6">
+        <div className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 space-y-6 hover:border-white/[0.2] transition-colors">
           <div className="flex items-center gap-3">
-            <div className="p-3 rounded-2xl bg-amber-100 text-amber-600 border-2 border-amber-200">
-              <Sparkles className="w-6 h-6 fill-amber-500" />
+            <div className="p-2.5 rounded-xl bg-neutral-900 border border-white/10 text-white">
+              <Sparkles className="w-5 h-5" />
             </div>
-            <h3 className="text-2xl font-black text-slate-900 font-cartoon">Key Capabilities</h3>
+            <h3 className="text-lg font-bold text-white tracking-tight">
+              Key Capabilities &amp; Highlights
+            </h3>
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {project.features.map((feat, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-sm text-slate-700 font-medium">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+              <li
+                key={idx}
+                className="flex items-start gap-3 text-sm text-neutral-300 font-normal"
+              >
+                <CheckCircle2 className="w-4 h-4 text-[var(--theme-text)] shrink-0 mt-0.5" />
                 <span>{feat}</span>
               </li>
             ))}
           </ul>
-        </GlassCard>
+        </div>
       </div>
     </div>
   );

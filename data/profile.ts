@@ -36,7 +36,7 @@ export const profile: Profile = {
     "I believe in clean craftsmanship, high-velocity experimentation, and user-first design. Software should not just be functional; it should feel joyful, accessible, and fast.",
   futureGoals:
     "Continuing to deepen my mastery of scalable web architectures, exploring creative interactions, and sharing projects with the global developer community.",
-  email: "contact@pankaj.life", // Configurable email address
+  email: "hello@pankaj.life",
   statusText: "Building digital projects & exploring modern tech",
   statusActive: true,
 };

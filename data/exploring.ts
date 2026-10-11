@@ -41,7 +41,7 @@ export const exploringItems: ExploringItem[] = [
     status: "Actively Researching",
     updatedDate: "March 2026",
     badgeColor: "#a855f7",
-    projectUrl: "https://pankaj.life",
+    projectUrl: "https://github.com/ivpankaj",
   },
   {
     id: "ai-tooling-specs",

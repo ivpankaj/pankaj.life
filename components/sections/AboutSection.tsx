@@ -1,106 +1,120 @@
 import React from "react";
 import Link from "next/link";
-import {
-  Compass,
-  Sparkles,
-  Code,
-  Target,
-  ArrowRight,
-  Star,
-} from "lucide-react";
+import { Compass, Code2, Target, ArrowRight, Terminal } from "lucide-react";
 import { profile } from "@/data/profile";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { GlassCard } from "@/components/ui/GlassCard";
+import { Meteors } from "@/components/ui/meteors";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white scroll-mt-28">
+    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-[var(--theme-bg)] scroll-mt-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader title="About Pankaj Verma" />
+        {/* Clean Section Header without badge or subheading */}
+        <div className="mb-12 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--theme-text)]">
+            About Pankaj Verma
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Main Persona Card */}
-          <div className="lg:col-span-7 space-y-6">
-            <GlassCard variant="blue">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-3xl bg-gradient-to-tr from-amber-400 via-pink-500 to-indigo-600 p-[2.5px] shadow-lg shadow-pink-500/20">
-                  <div className="w-full h-full bg-white rounded-[21px] flex items-center justify-center font-black text-2xl text-slate-900 font-cartoon">
-                    P
-                  </div>
+        {/* Bento Grid Layout for About details */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Main Bio Card */}
+          <div className="md:col-span-2 rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 flex flex-col justify-between hover:border-white/[0.25] transition-colors relative overflow-hidden group">
+            <Meteors number={15} />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/[0.03] rounded-full blur-3xl pointer-events-none" />
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-xl bg-neutral-900 border border-white/10 text-white">
+                  <Terminal className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-slate-900 font-cartoon flex items-center gap-2">
-                    {profile.name}
-                    <Sparkles className="w-5 h-5 text-amber-500 fill-amber-500" />
+                  <h3 className="text-lg font-bold text-white tracking-tight">
+                    Engineering Foundations
                   </h3>
-                  <p className="text-sm font-bold font-cartoon text-pink-600">
-                    @{profile.handle}
-                  </p>
+                  <span className="text-xs font-mono text-neutral-400">
+                    @{profile.handle} • Full-Stack Engineer
+                  </span>
                 </div>
               </div>
-
-              <div className="space-y-4 text-slate-700 text-base leading-relaxed font-medium">
-                <p>{profile.aboutIntro}</p>
-                <p>{profile.approach}</p>
-              </div>
-            </GlassCard>
-
-            {/* Approach to Engineering */}
-            <GlassCard variant="purple">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-purple-100 text-purple-700 border-2 border-purple-200">
-                  <Code className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-black text-slate-900 font-cartoon">My Approach to Building</h4>
-              </div>
-              <p className="text-base text-slate-700 leading-relaxed font-medium">
-                {profile.approach} Every digital space should feel joyful, responsive, and alive — pairing robust technical foundations with whimsical tactile micro-interactions.
+              <p className="text-neutral-300 leading-relaxed text-sm sm:text-base mb-4 font-normal">
+                {profile.aboutIntro}
               </p>
-            </GlassCard>
+              <p className="text-neutral-400 leading-relaxed text-sm sm:text-base font-normal">
+                {profile.approach}
+              </p>
+            </div>
+
+            <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-neutral-400">
+              <span>Location: Digital Universe</span>
+              <span>Full-Stack Web</span>
+            </div>
           </div>
 
-          {/* Right Column: Key Pillars & Interests */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Core Tech Interests */}
-            <GlassCard variant="blue">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-cyan-100 text-cyan-700 border-2 border-cyan-200">
-                  <Compass className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-black text-slate-900 font-cartoon">Technology Interests</h4>
+          {/* Core Philosophy Card */}
+          <div className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 flex flex-col justify-between hover:border-white/[0.25] transition-colors">
+            <div>
+              <div className="p-2.5 w-fit rounded-xl bg-neutral-900 border border-white/10 text-white mb-6">
+                <Code2 className="w-5 h-5" />
               </div>
-              <ul className="space-y-3">
-                {profile.interests.map((interest, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-start gap-3 text-sm text-slate-700 font-bold font-cartoon"
-                  >
-                    <Star className="w-4 h-4 text-amber-500 fill-amber-500 mt-0.5 shrink-0" />
-                    <span>{interest}</span>
-                  </li>
-                ))}
-              </ul>
-            </GlassCard>
+              <h3 className="text-lg font-bold text-white tracking-tight mb-3">
+                Architectural Approach
+              </h3>
+              <p className="text-neutral-400 text-sm leading-relaxed mb-4">
+                Prioritizing clean craftsmanship, user accessibility, minimal client JavaScript payloads, and responsive, fluid interfaces.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl bg-neutral-900/60 border border-white/[0.05] text-xs font-mono text-neutral-300">
+              &quot;Software should feel fast, deliberate, and reliable.&quot;
+            </div>
+          </div>
 
-            {/* Future Goals */}
-            <GlassCard variant="orange">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-amber-100 text-amber-700 border-2 border-amber-200">
-                  <Target className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-black text-slate-900 font-cartoon">Future Horizons</h4>
+          {/* Interests Card */}
+          <div className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 hover:border-white/[0.25] transition-colors">
+            <div className="p-2.5 w-fit rounded-xl bg-neutral-900 border border-white/10 text-white mb-6">
+              <Compass className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-bold text-white tracking-tight mb-4">
+              Focus Areas
+            </h3>
+            <ul className="space-y-2.5">
+              {profile.interests.map((interest, idx) => (
+                <li key={idx} className="flex items-center gap-2 text-xs font-mono text-neutral-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-neutral-500" />
+                  <span>{interest}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Future Horizons Card */}
+          <div className="md:col-span-2 rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 flex flex-col justify-between hover:border-white/[0.25] transition-colors relative overflow-hidden group">
+            <Meteors number={12} />
+            <div>
+              <div className="p-2.5 w-fit rounded-xl bg-neutral-900 border border-white/10 text-white mb-6">
+                <Target className="w-5 h-5" />
               </div>
-              <p className="text-base text-slate-700 leading-relaxed font-medium mb-4">
+              <h3 className="text-lg font-bold text-white tracking-tight mb-3">
+                Current Objectives &amp; Vision
+              </h3>
+              <p className="text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl">
                 {profile.futureGoals}
               </p>
+            </div>
+
+            <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center justify-between">
               <Link
                 href="/about"
-                className="pixar-btn-gold px-5 py-2.5 text-xs font-black text-white inline-flex items-center gap-1.5 shadow-md"
+                className="text-xs font-mono text-[var(--theme-text)] hover:opacity-80 flex items-center gap-1.5 transition-opacity"
               >
-                <span>Read Full Digital Profile</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Read in-depth bio</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[var(--theme-text)]" />
               </Link>
-            </GlassCard>
+              <Link
+                href="/contact"
+                className="theme-btn px-4 py-2 rounded-lg bg-[var(--theme-btn-bg)] text-[var(--theme-btn-text)] text-xs font-semibold hover:opacity-90 transition-opacity"
+              >
+                <span>Connect with Pankaj</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

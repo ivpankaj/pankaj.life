@@ -1,68 +1,79 @@
 import React from "react";
-import { Radar, ExternalLink, Activity } from "lucide-react";
+import { ExternalLink, Cpu, Sparkles, Terminal, Activity } from "lucide-react";
 import { exploringItems } from "@/data/exploring";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { GlassCard } from "@/components/ui/GlassCard";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 
 export function ExploringSection() {
+  const getIcon = (idx: number) => {
+    switch (idx) {
+      case 0:
+        return <Terminal className="w-5 h-5 text-neutral-300" />;
+      case 1:
+        return <Cpu className="w-5 h-5 text-neutral-300" />;
+      case 2:
+        return <Sparkles className="w-5 h-5 text-neutral-300" />;
+      default:
+        return <Activity className="w-5 h-5 text-neutral-300" />;
+    }
+  };
+
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-[var(--theme-bg)]">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader title="Currently Exploring" />
+        {/* Clean Section Header without badge or subheading */}
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--theme-text)]">
+            Current Technical Explorations
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
-          {exploringItems.map((item) => (
-            <GlassCard
+        <BentoGrid className="max-w-6xl mx-auto">
+          {exploringItems.map((item, idx) => (
+            <BentoGridItem
               key={item.id}
-              variant="blue"
-              className="flex flex-col justify-between group hover:border-cyan-400"
-            >
-              <div>
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-2xl bg-cyan-50 border-2 border-cyan-200 text-cyan-600 shadow-md group-hover:rotate-12 transition-transform">
-                      <Radar className="w-6 h-6 animate-spin" style={{ animationDuration: "10s" }} />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-black text-slate-900 font-cartoon group-hover:text-pink-600 transition-colors">
-                        {item.name}
-                      </h3>
-                      <span className="text-xs font-bold font-cartoon text-cyan-700">
-                        {item.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  <span className="text-xs font-black font-cartoon uppercase tracking-wider text-cyan-700 shrink-0">
+              className={idx === 0 || idx === 3 ? "md:col-span-2" : "md:col-span-1"}
+              title={
+                <div className="flex items-center justify-between gap-2">
+                  <span>{item.name}</span>
+                  <span className="text-xs font-mono text-neutral-400">
                     {item.status}
                   </span>
                 </div>
-
-                <p className="text-sm text-slate-700 font-medium leading-relaxed mb-4">
-                  {item.focus}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t-2 border-slate-100 flex items-center justify-between text-xs font-cartoon text-slate-500">
-                <span className="flex items-center gap-1.5 font-bold">
-                  <Activity className="w-4 h-4 text-emerald-500" />
-                  <span>Updated: {item.updatedDate}</span>
-                </span>
-                {item.projectUrl && (
-                  <a
-                    href={item.projectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-black text-pink-600 hover:text-pink-700 transition-colors"
-                  >
-                    <span>View Docs</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
-              </div>
-            </GlassCard>
+              }
+              description={
+                <div className="space-y-3">
+                  <p className="text-neutral-400 text-sm">{item.focus}</p>
+                  <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] text-xs font-mono text-neutral-500">
+                    <span>{item.category}</span>
+                    {item.projectUrl && (
+                      <a
+                        href={item.projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-neutral-300 hover:text-white flex items-center gap-1 transition-colors"
+                      >
+                        <span>Docs</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              }
+              header={
+                <div className="flex flex-1 w-full h-full min-h-[5rem] rounded-xl bg-gradient-to-br from-neutral-900 to-neutral-950 border border-white/[0.05] p-4 flex items-end">
+                  <span className="text-xs font-mono text-neutral-500">
+                    Updated: {item.updatedDate}
+                  </span>
+                </div>
+              }
+              icon={
+                <div className="p-2 rounded-lg bg-neutral-900 border border-white/10 w-fit mb-1">
+                  {getIcon(idx)}
+                </div>
+              }
+            />
           ))}
-        </div>
+        </BentoGrid>
       </div>
     </section>
   );

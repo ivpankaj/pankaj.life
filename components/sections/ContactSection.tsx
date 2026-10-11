@@ -1,64 +1,90 @@
+"use client";
+
 import React from "react";
-import { Mail, MessageSquare } from "lucide-react";
+import { MessageSquare, Terminal } from "lucide-react";
 import { profile } from "@/data/profile";
 import { socials } from "@/data/socials";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { ContactForm } from "@/components/contact/ContactForm";
 import { BrandIcon } from "@/components/ui/BrandIcon";
+import { ContactForm } from "@/components/contact/ContactForm";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { Meteors } from "@/components/ui/meteors";
 
-export function ContactSection() {
+export function ContactSection({
+  headingTag = "h2",
+}: {
+  headingTag?: "h1" | "h2";
+} = {}) {
   return (
-    <section id="contact" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white scroll-mt-28">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-[var(--theme-bg)] scroll-mt-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader title="Connect With Me" />
+        {/* Clean Section Header */}
+        <div className="mb-14 text-center max-w-3xl mx-auto relative">
+          <div className="absolute inset-x-20 -top-6 bg-gradient-to-r from-transparent via-[var(--theme-card-border)] to-transparent h-[2px] w-3/4 mx-auto blur-sm" />
+          {headingTag === "h1" ? (
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--theme-text)]">
+              Get in Touch
+            </h1>
+          ) : (
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--theme-text)]">
+              Get in Touch
+            </h2>
+          )}
+          <div className="h-1 w-20 mx-auto mt-4 bg-[var(--theme-card-border)] rounded-full" />
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Info Column */}
-          <div className="lg:col-span-5 space-y-6">
-            <GlassCard variant="blue">
-              <div className="flex items-center gap-3.5 mb-6">
-                <div className="p-3.5 rounded-2xl bg-pink-100 text-pink-600 border-2 border-pink-200 shadow-md">
-                  <Mail className="w-6 h-6" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
+          {/* Left Column: Direct Info with Aceternity CardSpotlight & Meteors */}
+          <div className="lg:col-span-5">
+            <CardSpotlight
+              color="var(--theme-glow)"
+              radius={300}
+              className="space-y-6 relative overflow-hidden"
+            >
+              <Meteors number={10} />
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-neutral-900 border border-white/10 text-white">
+                  <Terminal className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-slate-900 font-cartoon">Let&apos;s Converse</h3>
-                  <p className="text-xs font-bold font-cartoon text-pink-600">
-                    Reach Pankaj Verma (@{profile.handle})
+                  <h3 className="text-lg font-bold text-white tracking-tight">
+                    Pankaj Verma
+                  </h3>
+                  <p className="text-xs font-mono text-neutral-400">
+                    @{profile.handle} • Systems &amp; Web Engineer
                   </p>
                 </div>
               </div>
 
-              <p className="text-base text-slate-700 font-medium leading-relaxed mb-6">
-                I am always excited to discuss Next.js architectures, creative front-end design, web animation experiments, and collaboration opportunities.
+              <p className="text-sm text-neutral-300 leading-relaxed font-normal">
+                Open to discussing full-stack web applications, TypeScript architectures, developer utilities, and web performance.
               </p>
 
               {profile.email && (
-                <div className="p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 border-b-4 border-b-slate-300 mb-6 shadow-inner">
-                  <span className="text-[11px] font-bold font-cartoon text-slate-500 block mb-1 uppercase tracking-wider">
-                    Direct Email
+                <div className="p-4 rounded-xl bg-[var(--theme-subtle-bg)] border border-[var(--theme-card-border)]">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--theme-text-muted)] block mb-1">
+                    Direct Contact
                   </span>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="text-base font-black text-slate-900 hover:text-pink-600 font-cartoon transition-colors"
+                    className="text-sm font-mono text-[var(--theme-text)] hover:underline transition-all"
                   >
                     {profile.email}
                   </a>
                 </div>
               )}
 
-              <div className="space-y-3">
-                <span className="text-xs font-black font-cartoon uppercase tracking-wider text-slate-500 block">
-                  Social Channels
+              <div>
+                <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-3">
+                  Verified Profiles
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-2 gap-2">
                   {socials.slice(0, 4).map((s) => (
                     <a
                       key={s.id}
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 p-3 rounded-2xl bg-slate-50 border-2 border-slate-200 border-b-4 border-b-slate-300 text-slate-700 hover:text-slate-900 hover:border-pink-300 hover:scale-105 active:translate-y-1 transition-all text-xs font-bold font-cartoon"
+                      className="flex items-center gap-2.5 p-2.5 rounded-xl bg-neutral-900/60 border border-white/[0.06] text-neutral-300 hover:text-white hover:border-white/20 transition-all text-xs"
                     >
                       <BrandIcon name={s.id} size={18} />
                       <span className="truncate">{s.name}</span>
@@ -66,18 +92,24 @@ export function ContactSection() {
                   ))}
                 </div>
               </div>
-            </GlassCard>
+            </CardSpotlight>
           </div>
 
-          {/* Right Form Column */}
+          {/* Right Column: Contact Form with Aceternity CardSpotlight */}
           <div className="lg:col-span-7">
-            <GlassCard variant="purple">
+            <CardSpotlight
+              color="var(--theme-glow)"
+              radius={350}
+              className="p-6 sm:p-8"
+            >
               <div className="flex items-center gap-2.5 mb-6">
-                <MessageSquare className="w-6 h-6 text-pink-600" />
-                <h3 className="text-2xl font-black text-slate-900 font-cartoon">Send a Message</h3>
+                <MessageSquare className="w-5 h-5 text-neutral-300" />
+                <h3 className="text-lg font-bold text-white tracking-tight">
+                  Send a Direct Message
+                </h3>
               </div>
               <ContactForm />
-            </GlassCard>
+            </CardSpotlight>
           </div>
         </div>
       </div>

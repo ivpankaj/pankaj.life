@@ -1,99 +1,88 @@
 import React from "react";
-import { ExternalLink, Globe, Sparkles } from "lucide-react";
+import { ExternalLink, Globe } from "lucide-react";
 import { websites } from "@/data/websites";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { GlassCard } from "@/components/ui/GlassCard";
 
 export function WebsitesSection() {
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10 bg-black">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader title="Websites & Domains" />
+        {/* Clean Section Header without badge or subheading */}
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+            Web Properties &amp; Platforms
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
           {websites.map((site) => (
-            <GlassCard
+            <div
               key={site.id}
-              variant="blue"
+              className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 hover:border-white/[0.25] transition-colors relative overflow-hidden"
             >
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                {/* Left Preview Screen */}
-                <div className="md:col-span-5 rounded-3xl bg-slate-50 border-3 border-slate-200 border-b-6 border-b-slate-300 overflow-hidden shadow-md">
-                  {/* Titlebar */}
-                  <div className="px-4 py-3 bg-slate-100 border-b-2 border-slate-200 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="w-3 h-3 rounded-full bg-rose-500 border border-rose-300" />
-                      <span className="w-3 h-3 rounded-full bg-amber-400 border border-yellow-200" />
-                      <span className="w-3 h-3 rounded-full bg-emerald-400 border border-emerald-200" />
+                {/* Browser preview bar */}
+                <div className="md:col-span-5 rounded-xl bg-neutral-900 border border-white/10 overflow-hidden">
+                  <div className="px-3.5 py-2.5 bg-neutral-950 border-b border-white/10 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
                     </div>
-                    <span className="text-xs font-bold font-cartoon text-slate-500">
-                      https://{site.domain}
+                    <span className="text-[11px] font-mono text-neutral-400 truncate max-w-[150px]">
+                      {site.domain}
                     </span>
-                    <Globe className="w-3.5 h-3.5 text-emerald-500" />
+                    <Globe className="w-3.5 h-3.5 text-neutral-500" />
                   </div>
-
-                  {/* Visual Preview */}
-                  <div className="p-7 text-center space-y-3 bg-gradient-to-tr from-indigo-50 via-white to-pink-50">
-                    <div className="inline-flex p-4 rounded-3xl bg-amber-100 border-2 border-amber-300 shadow-md animate-toy-bob">
-                      <Sparkles className="w-10 h-10 text-amber-500 fill-amber-500" />
+                  <div className="p-8 text-center space-y-2">
+                    <div className="text-xl font-bold text-white tracking-tight">
+                      {site.name}
                     </div>
-                    <div>
-                      <div className="font-black text-slate-900 text-xl font-cartoon tracking-tight">
-                        {site.name}
-                      </div>
-                      <div className="text-xs font-bold font-cartoon text-pink-600">
-                        Official Personal Space
-                      </div>
+                    <div className="text-xs font-mono text-neutral-400">
+                      https://{site.domain}
                     </div>
                   </div>
                 </div>
 
-                {/* Right Details */}
+                {/* Details */}
                 <div className="md:col-span-7 space-y-4">
-                  <h3 className="text-3xl font-black text-slate-900 font-cartoon">
-                    {site.name}
-                  </h3>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white tracking-tight">
+                      {site.name}
+                    </h3>
+                    <p className="text-xs font-mono text-neutral-400 mt-1">
+                      Role: {site.role}
+                    </p>
+                  </div>
 
-                  <p className="text-base text-slate-700 font-medium leading-relaxed">
+                  <p className="text-sm text-neutral-300 leading-relaxed">
                     {site.purpose}
                   </p>
 
-                  <div className="space-y-1 text-xs font-cartoon text-slate-600">
-                    <p>
-                      <strong className="text-slate-900">Role:</strong> {site.role}
-                    </p>
-                    {site.notes && (
-                      <p>
-                        <strong className="text-slate-900">Notes:</strong> {site.notes}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 pt-2">
+                  <div className="flex flex-wrap gap-2 pt-1">
                     {site.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 rounded-full text-xs font-bold font-cartoon text-indigo-700 bg-indigo-50 border border-indigo-200"
+                        className="px-2.5 py-1 rounded-md text-xs font-mono text-neutral-300 bg-neutral-900 border border-white/[0.08]"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="pt-3">
+                  <div className="pt-2">
                     <a
                       href={site.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="pixar-btn-primary px-6 py-3 text-sm font-black text-white inline-flex items-center gap-2 shadow-md"
+                      className="px-5 py-2.5 rounded-lg bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors inline-flex items-center gap-2 shadow-sm"
                     >
                       <span>Visit {site.domain}</span>
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
               </div>
-            </GlassCard>
+            </div>
           ))}
         </div>
       </div>

@@ -16,14 +16,15 @@ export function BrandIcon({ name, className = "w-6 h-6", size = 24 }: BrandIconP
           width={size}
           height={size}
           viewBox="0 0 24 24"
-          fill="currentColor"
           className={className}
           aria-label="GitHub logo"
         >
+          <rect width="24" height="24" rx="12" fill="#24292e" />
           <path
+            fill="#ffffff"
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+            d="M12 4C7.58 4 4 7.58 4 12c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0020 12c0-4.42-3.58-8-8-8z"
           />
         </svg>
       );
@@ -34,11 +35,14 @@ export function BrandIcon({ name, className = "w-6 h-6", size = 24 }: BrandIconP
           width={size}
           height={size}
           viewBox="0 0 24 24"
-          fill="currentColor"
           className={className}
           aria-label="LinkedIn logo"
         >
-          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          <rect width="24" height="24" rx="4" fill="#0A66C2" />
+          <path
+            fill="#ffffff"
+            d="M7.12 9.3H4.42v9.4h2.7V9.3zm-1.35-4.2c-.86 0-1.43.57-1.43 1.32 0 .73.55 1.32 1.39 1.32h.02c.88 0 1.43-.59 1.43-1.32 0-.75-.55-1.32-1.41-1.32zM19.58 13.06c0-2.96-1.58-4.34-3.69-4.34-1.7 0-2.47.94-2.89 1.6v-1.38h-2.7c.04.77 0 9.36 0 9.36h2.7v-5.23c0-.28.02-.56.1-.76.23-.56.74-1.14 1.6-1.14 1.13 0 1.58.86 1.58 2.12v5.01h2.7v-5.24z"
+          />
         </svg>
       );
 
@@ -49,11 +53,14 @@ export function BrandIcon({ name, className = "w-6 h-6", size = 24 }: BrandIconP
           width={size}
           height={size}
           viewBox="0 0 24 24"
-          fill="currentColor"
           className={className}
           aria-label="X logo"
         >
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          <rect width="24" height="24" rx="4" fill="#000000" stroke="#333333" strokeWidth="1" />
+          <path
+            fill="#ffffff"
+            d="M17.5 4.5h2.3l-5.02 5.74 5.91 7.81h-4.63l-3.62-4.74-4.15 4.74H5.98l5.37-6.14-5.65-7.41h4.75l3.27 4.33zm-.81 12.18h1.27L9.84 5.82H8.48z"
+          />
         </svg>
       );
 
@@ -63,17 +70,38 @@ export function BrandIcon({ name, className = "w-6 h-6", size = 24 }: BrandIconP
           width={size}
           height={size}
           viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
           className={className}
           aria-label="Instagram logo"
         >
-          <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+          <defs>
+            <radialGradient id="ig-grad" cx="20%" cy="105%" r="140%">
+              <stop offset="0%" stopColor="#fdf497" />
+              <stop offset="10%" stopColor="#fdf497" />
+              <stop offset="45%" stopColor="#fd5949" />
+              <stop offset="60%" stopColor="#d6249f" />
+              <stop offset="90%" stopColor="#285AEB" />
+            </radialGradient>
+          </defs>
+          <rect width="24" height="24" rx="6" fill="url(#ig-grad)" />
+          <rect
+            x="4.5"
+            y="4.5"
+            width="15"
+            height="15"
+            rx="4"
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth="1.6"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="3.6"
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth="1.6"
+          />
+          <circle cx="16.2" cy="7.8" r="1" fill="#ffffff" />
         </svg>
       );
 
@@ -83,11 +111,11 @@ export function BrandIcon({ name, className = "w-6 h-6", size = 24 }: BrandIconP
           width={size}
           height={size}
           viewBox="0 0 24 24"
-          fill="currentColor"
           className={className}
           aria-label="YouTube logo"
         >
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          <rect width="24" height="24" rx="5" fill="#FF0000" />
+          <path d="M10 8.5l5.5 3.5-5.5 3.5v-7z" fill="#ffffff" />
         </svg>
       );
 

@@ -4,7 +4,7 @@ import { constructMetadata } from "@/lib/metadata";
 import { SocialsUniverseSection } from "@/components/sections/SocialsUniverseSection";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Social Media Universe",
+  title: "Verified Social Profiles",
   description:
     "Official verified social media profiles of Pankaj Verma (@ivpankaj) on GitHub, LinkedIn, X, Instagram, and YouTube.",
   canonicalUrl: "/socials",
@@ -13,7 +13,7 @@ export const metadata: Metadata = constructMetadata({
 export default function SocialsPage() {
   return (
     <div className="pt-20 pb-16">
-      <SocialsUniverseSection />
+      <SocialsUniverseSection headingTag="h1" />
     </div>
   );
 }

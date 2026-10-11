@@ -1,63 +1,77 @@
 import React from "react";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { socials } from "@/data/socials";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { BrandIcon } from "@/components/ui/BrandIcon";
+import { FloatingDock, FloatingDockItem } from "@/components/ui/floating-dock";
 
-export function SocialsUniverseSection() {
+export function SocialsUniverseSection({
+  headingTag = "h2",
+}: {
+  headingTag?: "h1" | "h2";
+} = {}) {
+  const dockItems: FloatingDockItem[] = socials.map((social) => ({
+    title: social.name,
+    icon: <BrandIcon name={social.id} size={22} />,
+    href: social.url,
+  }));
+
   return (
-    <section id="socials" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10 bg-white scroll-mt-28">
+    <section id="socials" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-[var(--theme-bg)] scroll-mt-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader title="Social Media Universe" />
+        {/* Clean Section Header without badge or subheading */}
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          {headingTag === "h1" ? (
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--theme-text)]">
+              Connect Across Platforms
+            </h1>
+          ) : (
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--theme-text)]">
+              Connect Across Platforms
+            </h2>
+          )}
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+        {/* Aceternity UI Floating Dock Showcase */}
+        <div className="flex justify-center mb-14">
+          <FloatingDock items={dockItems} />
+        </div>
+
+        {/* Detailed Grid of Social Handles */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {socials.map((platform) => (
             <a
               key={platform.id}
               href={platform.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-slate-900 border-4 border-slate-200 border-b-8 border-b-slate-300 shadow-xl shadow-slate-100/60 rounded-[32px] p-6 sm:p-7 flex flex-col justify-between group hover:border-pink-300 hover:border-b-pink-400 hover:scale-105 transition-all duration-200 cursor-pointer"
+              aria-label={`${platform.name} profile of Pankaj Verma (${platform.handle})`}
+              className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 hover:border-white/[0.25] transition-colors flex flex-col justify-between group cursor-pointer"
             >
               <div>
-                {/* Header with Brand SVG & Handle */}
-                <div className="flex items-start justify-between mb-5">
-                  <div
-                    className="p-4 rounded-3xl bg-slate-50 border-2 border-slate-200 shadow-md group-hover:rotate-6 transition-transform"
-                    style={{ borderColor: `${platform.brandColor}30` }}
-                  >
-                    <BrandIcon
-                      name={platform.id}
-                      size={32}
-                    />
+                <div className="flex items-start justify-between mb-4">
+                  <div className="p-2.5 rounded-xl bg-neutral-900 border border-white/10 flex items-center justify-center">
+                    <BrandIcon name={platform.id} size={28} />
                   </div>
-                  <div className="p-2.5 rounded-2xl bg-slate-100 group-hover:bg-pink-500 group-hover:text-white text-slate-500 transition-colors">
-                    <ExternalLink className="w-4 h-4" />
+                  <div className="p-2 rounded-lg bg-neutral-900/60 text-[var(--theme-text-muted)] group-hover:text-[var(--theme-text)] transition-colors">
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
 
-                {/* Identity Tag */}
-                <div className="space-y-1 mb-3">
-                  <h3 className="text-2xl font-black text-slate-900 font-cartoon group-hover:text-pink-600 transition-colors">
-                    {platform.name}
-                  </h3>
-                  <div className="text-xs font-cartoon font-bold text-pink-600">
-                    {platform.handle}
-                  </div>
+                <h3 className="text-xl font-bold text-[var(--theme-text)] tracking-tight">
+                  {platform.name}
+                </h3>
+                <div className="text-xs font-mono text-[var(--theme-text-muted)] mt-0.5 mb-3">
+                  {platform.handle}
                 </div>
 
-                <p className="text-sm text-slate-700 font-medium leading-relaxed mb-6">
+                <p className="text-sm text-[var(--theme-text-muted)] leading-relaxed font-normal">
                   {platform.purpose}
                 </p>
               </div>
 
-              {/* Bottom Connect Pill */}
-              <div className="pt-4 border-t-2 border-slate-100 flex items-center justify-between text-xs font-cartoon">
-                <span className="text-slate-500 font-bold">{platform.category}</span>
-                <span className="text-pink-600 font-black group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
-                  <span>Visit Profile</span>
-                  <ArrowRight className="w-4 h-4" />
-                </span>
+              <div className="pt-4 mt-4 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-[var(--theme-text-muted)]">
+                <span>{platform.category}</span>
+                <span className="text-[var(--theme-text)] group-hover:underline">Visit Profile →</span>
               </div>
             </a>
           ))}

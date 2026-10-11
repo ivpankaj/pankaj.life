@@ -12,7 +12,7 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-5">
-      {/* Honeypot field hidden from users for bot prevention */}
+      {/* Honeypot field for bot prevention */}
       <div className="hidden" aria-hidden="true">
         <label htmlFor="website_bot_trap">Do not fill this out</label>
         <input
@@ -28,10 +28,10 @@ export function ContactForm() {
       {state?.success && (
         <div
           role="status"
-          className="p-4 rounded-3xl bg-emerald-50 border-3 border-emerald-400 text-emerald-800 flex items-start gap-3 shadow-md"
+          className="p-4 rounded-xl bg-[var(--theme-subtle-bg)] border border-[var(--theme-card-border)] text-[var(--theme-text)] flex items-start gap-3"
         >
-          <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
-          <p className="text-sm font-bold font-cartoon leading-relaxed">{state.message}</p>
+          <CheckCircle2 className="w-5 h-5 text-[var(--theme-text)] shrink-0 mt-0.5" />
+          <p className="text-sm font-medium leading-relaxed text-[var(--theme-text)]">{state.message}</p>
         </div>
       )}
 
@@ -39,10 +39,10 @@ export function ContactForm() {
       {state && !state.success && (
         <div
           role="alert"
-          className="p-4 rounded-3xl bg-rose-50 border-3 border-rose-400 text-rose-800 flex items-start gap-3 shadow-md"
+          className="p-4 rounded-xl bg-[var(--theme-subtle-bg)] border border-[var(--theme-card-border)] text-[var(--theme-text)] flex items-start gap-3"
         >
-          <AlertCircle className="w-6 h-6 text-rose-600 shrink-0 mt-0.5" />
-          <p className="text-sm font-bold font-cartoon leading-relaxed">{state.message}</p>
+          <AlertCircle className="w-5 h-5 text-[var(--theme-text)] shrink-0 mt-0.5" />
+          <p className="text-sm font-medium leading-relaxed text-[var(--theme-text)]">{state.message}</p>
         </div>
       )}
 
@@ -50,9 +50,9 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="name"
-          className="block text-xs font-black font-cartoon uppercase tracking-wider text-slate-800 mb-2"
+          className="block text-xs font-semibold uppercase tracking-wider text-[var(--theme-text)] mb-2 font-mono"
         >
-          Your Name <span className="text-pink-600">*</span>
+          Your Name <span className="text-[var(--theme-text)]">*</span>
         </label>
         <input
           type="text"
@@ -60,10 +60,10 @@ export function ContactForm() {
           name="name"
           required
           placeholder="e.g. Alex Rivera"
-          className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-slate-200 border-b-4 border-b-slate-300 text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all text-sm"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--theme-subtle-bg)] border border-[var(--theme-card-border)] text-[var(--theme-text)] placeholder-[var(--theme-text-muted)] focus:outline-none focus:border-[var(--theme-card-hover)] transition-colors text-sm"
         />
         {state?.fieldErrors?.name && (
-          <p className="text-xs text-rose-600 font-bold font-cartoon mt-1.5">{state.fieldErrors.name}</p>
+          <p className="text-xs text-[var(--theme-text)] mt-1.5 font-medium">{state.fieldErrors.name}</p>
         )}
       </div>
 
@@ -71,9 +71,9 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="email"
-          className="block text-xs font-black font-cartoon uppercase tracking-wider text-slate-800 mb-2"
+          className="block text-xs font-semibold uppercase tracking-wider text-[var(--theme-text)] mb-2 font-mono"
         >
-          Your Email Address <span className="text-pink-600">*</span>
+          Your Email Address <span className="text-[var(--theme-text)]">*</span>
         </label>
         <input
           type="email"
@@ -81,10 +81,10 @@ export function ContactForm() {
           name="email"
           required
           placeholder="you@domain.com"
-          className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-slate-200 border-b-4 border-b-slate-300 text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all text-sm"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--theme-subtle-bg)] border border-[var(--theme-card-border)] text-[var(--theme-text)] placeholder-[var(--theme-text-muted)] focus:outline-none focus:border-[var(--theme-card-hover)] transition-colors text-sm"
         />
         {state?.fieldErrors?.email && (
-          <p className="text-xs text-rose-600 font-bold font-cartoon mt-1.5">{state.fieldErrors.email}</p>
+          <p className="text-xs text-[var(--theme-text)] mt-1.5 font-medium">{state.fieldErrors.email}</p>
         )}
       </div>
 
@@ -92,7 +92,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="subject"
-          className="block text-xs font-black font-cartoon uppercase tracking-wider text-slate-800 mb-2"
+          className="block text-xs font-semibold uppercase tracking-wider text-[var(--theme-text)] mb-2 font-mono"
         >
           Subject
         </label>
@@ -101,7 +101,7 @@ export function ContactForm() {
           id="subject"
           name="subject"
           placeholder="Collaboration, inquiry, or question"
-          className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-slate-200 border-b-4 border-b-slate-300 text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all text-sm"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--theme-subtle-bg)] border border-[var(--theme-card-border)] text-[var(--theme-text)] placeholder-[var(--theme-text-muted)] focus:outline-none focus:border-[var(--theme-card-hover)] transition-colors text-sm"
         />
       </div>
 
@@ -109,44 +109,44 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-xs font-black font-cartoon uppercase tracking-wider text-slate-800 mb-2"
+          className="block text-xs font-semibold uppercase tracking-wider text-[var(--theme-text)] mb-2 font-mono"
         >
-          Message <span className="text-pink-600">*</span>
+          Message <span className="text-[var(--theme-text)]">*</span>
         </label>
         <textarea
           id="message"
           name="message"
           required
           rows={5}
-          placeholder="Share your thoughts, project inquiry, or message..."
-          className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-slate-200 border-b-4 border-b-slate-300 text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 transition-all text-sm resize-y"
+          placeholder="Share your thoughts, inquiry, or project proposal..."
+          className="w-full px-4 py-3 rounded-lg bg-[var(--theme-subtle-bg)] border border-[var(--theme-card-border)] text-[var(--theme-text)] placeholder-[var(--theme-text-muted)] focus:outline-none focus:border-[var(--theme-card-hover)] transition-colors text-sm resize-y"
         />
         {state?.fieldErrors?.message && (
-          <p className="text-xs text-rose-600 font-bold font-cartoon mt-1.5">{state.fieldErrors.message}</p>
+          <p className="text-xs text-[var(--theme-text)] mt-1.5 font-medium">{state.fieldErrors.message}</p>
         )}
       </div>
 
-      {/* 3D Push Button */}
+      {/* Submit Button */}
       <button
         type="submit"
         disabled={isPending}
-        className="pixar-btn-primary w-full py-4 text-base font-black text-white shadow-lg disabled:opacity-50"
+        className="w-full py-3.5 px-6 rounded-lg bg-[var(--theme-btn-bg)] text-[var(--theme-btn-text)] font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50 shadow-md cursor-pointer"
       >
         {isPending ? (
           <>
-            <Loader2 className="w-5 h-5 animate-spin mr-2" />
-            <span>Sending Message...</span>
+            <Loader2 className="w-4 h-4 animate-spin text-[var(--theme-btn-text)]" />
+            <span className="text-[var(--theme-btn-text)]">Sending Message...</span>
           </>
         ) : (
           <>
-            <Send className="w-5 h-5 mr-2" />
-            <span>Transmit Message 🚀</span>
+            <Send className="w-4 h-4 text-[var(--theme-btn-text)]" />
+            <span className="text-[var(--theme-btn-text)]">Send Message</span>
           </>
         )}
       </button>
 
-      <p className="text-xs text-center text-slate-500 font-cartoon font-bold">
-        Your email is kept confidential. Messages go directly to Pankaj Verma.
+      <p className="text-xs text-center text-[var(--theme-text-muted)] font-mono">
+        Messages are delivered securely to Pankaj Verma.
       </p>
     </form>
   );

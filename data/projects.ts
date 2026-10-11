@@ -38,22 +38,22 @@ export const projectCategories: ProjectCategory[] = [
 export const projects: Project[] = [
   {
     slug: "pankaj-life-portfolio",
-    name: "pankaj.life — Digital Universe",
-    tagline: "Immersive personal technology universe and portfolio",
+    name: "Developer Ecosystem & Architecture Lab",
+    tagline: "High-performance digital engineering platform and interactive portfolio",
     description:
-      "The official web home for Pankaj Verma (@ivpankaj), built with Next.js 16 App Router, TypeScript, and a Pixar-inspired vibrant 3D cosmos aesthetic.",
+      "The flagship digital ecosystem for Pankaj Verma (@ivpankaj), built with Next.js 16 App Router, React 19, TypeScript, and authentic Aceternity UI interactive components.",
     longDescription:
-      "pankaj.life is the central digital hub designed to showcase technical skills, web architecture experiments, and digital ventures. Built with Next.js 16 and Tailwind CSS, it implements high-performance server components, zero AI-generated images, full technical SEO, JSON-LD structured data, and micro-interactions.",
+      "The central digital hub designed to showcase technical architecture, engineering experiments, and open-source ventures. Built with Next.js 16 and Tailwind CSS, it implements high-performance server components, official Aceternity UI components, full technical SEO, and micro-interactions.",
     category: "Websites",
     technologies: [
       "Next.js 16",
       "React 19",
       "TypeScript",
       "Tailwind CSS",
-      "App Router",
-      "Turbopack",
+      "Aceternity UI",
+      "Framer Motion",
     ],
-    liveUrl: "https://pankaj.life",
+    liveUrl: "/",
     githubUrl: "https://github.com/ivpankaj/pankaj.life",
     status: "Active",
     isSample: false,
