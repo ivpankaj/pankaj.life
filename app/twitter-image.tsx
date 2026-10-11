@@ -92,7 +92,7 @@ export default async function Image() {
           }}
         >
           <span style={{ color: "#cbd5e1" }}>Pankaj Verma — Personal Tech Universe</span>
-          <span style={{ color: "#818cf8", fontWeight: "bold" }}>https://pankaj.life</span>
+          <span style={{ color: "#818cf8", fontWeight: "bold" }}>https://www.pankaj.life</span>
         </div>
       </div>
     ),

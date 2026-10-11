@@ -18,7 +18,7 @@ export const profile: Profile = {
   name: "Pankaj Verma",
   displayName: "Pankaj",
   handle: "ivpankaj",
-  domain: "https://pankaj.life",
+  domain: "https://www.pankaj.life",
   tagline: "Exploring Technology. Building Digital Experiences.",
   subheading:
     "A personal space for my technology journey, digital projects, experiments, skills, and everything I build on the internet.",

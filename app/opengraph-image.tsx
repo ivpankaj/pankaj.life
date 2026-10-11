@@ -107,7 +107,7 @@ export default async function Image() {
             <span>Digital Universe</span>
           </div>
           <div style={{ color: "#818cf8", fontWeight: "bold" }}>
-            https://pankaj.life
+            https://www.pankaj.life
           </div>
         </div>
       </div>

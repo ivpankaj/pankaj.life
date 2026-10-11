@@ -84,7 +84,7 @@ export const projects: Project[] = [
       "Nexus Dev Toolkit provides essential daily tools for developers in a unified, privacy-focused in-browser environment. Processing runs entirely on the client, ensuring data never leaves the user's browser.",
     category: "Tools",
     technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Web Workers"],
-    liveUrl: "https://pankaj.life/projects/nexus-dev-toolkit",
+    liveUrl: "https://www.pankaj.life/projects/nexus-dev-toolkit",
     githubUrl: "https://github.com/ivpankaj",
     status: "In Progress",
     isSample: true, // Marked transparently as template showcase for user personalization
@@ -114,7 +114,7 @@ export const projects: Project[] = [
       "An exploratory cloud architecture project demonstrating distributed edge caching, CORS security enforcement, and token-bucket rate limiting for modern serverless architectures.",
     category: "Experiments",
     technologies: ["TypeScript", "Node.js", "Cloudflare Workers", "REST API"],
-    liveUrl: "https://pankaj.life/projects/aura-api-gateway",
+    liveUrl: "https://www.pankaj.life/projects/aura-api-gateway",
     githubUrl: "https://github.com/ivpankaj",
     status: "Prototype",
     isSample: true, // Marked transparently as template showcase for user personalization
@@ -144,7 +144,7 @@ export const projects: Project[] = [
       "Orbit Studio is a clean, minimal note-taking application designed for capturing technical thoughts, snippets, and project roadmaps without network dependency.",
     category: "Web Applications",
     technologies: ["React", "TypeScript", "Tailwind CSS", "IndexedDB", "Markdown"],
-    liveUrl: "https://pankaj.life/projects/orbit-notes-sync",
+    liveUrl: "https://www.pankaj.life/projects/orbit-notes-sync",
     githubUrl: "https://github.com/ivpankaj",
     status: "Prototype",
     isSample: true, // Marked transparently as template showcase for user personalization

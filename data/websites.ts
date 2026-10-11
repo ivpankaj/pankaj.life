@@ -15,8 +15,8 @@ export const websites: WebsiteEntry[] = [
   {
     id: "pankaj-life",
     name: "pankaj.life",
-    domain: "pankaj.life",
-    url: "https://pankaj.life",
+    domain: "www.pankaj.life",
+    url: "https://www.pankaj.life",
     purpose:
       "Official personal tech portfolio and digital home of Pankaj Verma (@ivpankaj), showcasing technologies, projects, and web experiments.",
     role: "Creator, Designer & Developer",
