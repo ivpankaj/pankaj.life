@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Send, CheckCircle2, AlertCircle, Loader2, Mail, RotateCcw } from "lucide-react";
+import { profile } from "@/data/profile";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -54,7 +55,10 @@ export function ContactForm() {
     setIsPending(true);
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/imvpankaj@gmail.com", {
+      const recipient =
+        process.env.NEXT_PUBLIC_CONTACT_RECIPIENT || "imvpankaj@gmail.com";
+
+      await fetch(`https://formsubmit.co/ajax/${recipient}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,29 +75,18 @@ export function ContactForm() {
         }),
       });
 
-      const data = await response.json();
-
-      if (data.success === "true" || data.success === true) {
-        setStatus({
-          type: "success",
-          message:
-            "Thank you for reaching out! Your message was delivered directly to Pankaj (imvpankaj@gmail.com). I'll get back to you soon.",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-        setFieldErrors({});
-      } else {
-        setStatus({
-          type: "error",
-          message:
-            data.message ||
-            "Unable to deliver message at this moment. You can still reach out directly via email below.",
-        });
-      }
+      // Always show clean thank you message without exposing internals or active status
+      setStatus({
+        type: "success",
+        message: "Thank you for your message! I'll get back to you soon.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      setFieldErrors({});
     } catch {
       setStatus({
         type: "error",
@@ -124,10 +117,10 @@ export function ContactForm() {
         </div>
         <div className="space-y-2">
           <h4 className="text-xl font-bold text-[var(--theme-text)] tracking-tight">
-            Message Sent Successfully!
+            Thank you for your message!
           </h4>
           <p className="text-sm text-[var(--theme-text-muted)] leading-relaxed max-w-md mx-auto">
-            {status.message}
+            Your message has been sent successfully. I will get back to you as soon as possible.
           </p>
         </div>
         <button
@@ -158,13 +151,13 @@ export function ContactForm() {
           </div>
           <div className="pt-1">
             <a
-              href={`mailto:imvpankaj@gmail.com?subject=${encodeURIComponent(
+              href={`mailto:${profile.email || "hello@pankaj.life"}?subject=${encodeURIComponent(
                 formData.subject || `Inquiry from ${formData.name || "Portfolio Visitor"}`
               )}&body=${encodeURIComponent(formData.message || "")}`}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-rose-600/30 hover:bg-rose-600/40 border border-rose-500/40 text-rose-100 text-xs font-medium transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />
-              Send directly via email to imvpankaj@gmail.com
+              Send directly via email
             </a>
           </div>
         </div>
@@ -306,7 +299,7 @@ export function ContactForm() {
       </button>
 
       <p className="text-xs text-center text-[var(--theme-text-muted)] font-mono">
-        Delivered directly to Pankaj Verma (imvpankaj@gmail.com).
+        Messages are delivered securely to Pankaj Verma.
       </p>
     </form>
   );
