@@ -2,7 +2,7 @@
 
 Official personal tech portfolio and digital home for **Pankaj Verma** (also known online as **Pankaj** and **@ivpankaj**).
 
-🌐 **Production Website**: [https://pankaj.life](https://pankaj.life)
+🌐 **Production Website**: [https://www.pankaj.life](https://www.pankaj.life) (canonical, redirects from `pankaj.life`)
 
 ---
 
@@ -140,17 +140,17 @@ npm run build
 
 ## 🔍 Technical SEO & Verification
 
-- **Canonical Domain**: `https://pankaj.life`
-- **Sitemap**: `https://pankaj.life/sitemap.xml`
-- **Robots**: `https://pankaj.life/robots.txt`
-- **JSON-LD**: Automatically rendered in page head (`Person`, `WebSite`, `SoftwareApplication`)
+- **Canonical Domain**: `https://www.pankaj.life`
+- **Sitemap**: `https://www.pankaj.life/sitemap.xml`
+- **Robots**: `https://www.pankaj.life/robots.txt`
+- **JSON-LD**: Automatically rendered in page head (`Person`, `WebSite`, `ProfilePage`, `BreadcrumbList`, `SoftwareApplication`, `TechArticle`, `ContactPage`)
 - **OpenGraph & Twitter**: Automatically rendered via Edge route handlers at `/opengraph-image` and `/twitter-image`.
 
 ### Google Search Console Setup
 1. Open [Google Search Console](https://search.google.com/search-console).
-2. Add Property `https://pankaj.life`.
+2. Add Property `https://www.pankaj.life`.
 3. Choose HTML Tag verification and paste the verification code into `.env.local` as `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=...`.
-4. Submit `https://pankaj.life/sitemap.xml` under Sitemaps.
+4. Submit `https://www.pankaj.life/sitemap.xml` under Sitemaps.
 
 ---
 
@@ -158,6 +158,5 @@ npm run build
 
 1. Push this repository to GitHub under `ivpankaj/pankaj.life`.
 2. Connect the repository on [Vercel](https://vercel.com) or [Cloudflare Pages](https://pages.cloudflare.com).
-3. Set the Custom Domain to `pankaj.life` with DNS A/CNAME records configured.
+3. Set the Custom Domain to `www.pankaj.life` (with apex redirect `pankaj.life` -> `www.pankaj.life`).
 4. Deploy! Next.js 16 will automatically build static pages, edge image routes, and server actions.
-# pankaj.life

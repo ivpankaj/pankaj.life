@@ -81,7 +81,12 @@ export function ProjectsSection({
                     translateZ="50"
                     className="text-xl sm:text-2xl font-bold text-white tracking-tight"
                   >
-                    {project.name}
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="hover:text-[var(--theme-text)] transition-colors"
+                    >
+                      {project.name}
+                    </Link>
                   </CardItem>
 
                   <CardItem

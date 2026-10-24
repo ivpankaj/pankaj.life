@@ -6,12 +6,13 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { TechUniverseSection } from "@/components/sections/TechUniverseSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { AchievementsSection } from "@/components/sections/AchievementsSection";
 import { SocialsUniverseSection } from "@/components/sections/SocialsUniverseSection";
-import { ExploringSection } from "@/components/sections/ExploringSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 export const metadata: Metadata = constructMetadata({
+  title: "Pankaj Verma | Full-Stack Developer & Software Portfolio",
+  description:
+    "Explore Pankaj Verma's official portfolio, projects, and software development work. Known online as ivpankaj, Pankaj shares his technical projects, architecture, verified skills, and experience.",
   canonicalUrl: "/",
 });
 
@@ -22,10 +23,8 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <TechUniverseSection />
-      {/* <ProjectsSection /> - Commented out for now */}
-      {/* <AchievementsSection /> - Commented out for now */}
+      <ProjectsSection />
       <SocialsUniverseSection />
-      {/* <ExploringSection /> - Commented out for now */}
       <ContactSection />
     </div>
   );

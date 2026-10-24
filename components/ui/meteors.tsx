@@ -19,16 +19,19 @@ export const Meteors = ({
   const [meteorStyles, setMeteorStyles] = useState<MeteorStyle[]>([]);
 
   useEffect(() => {
-    const styles: MeteorStyle[] = [];
-    for (let i = 0; i < number; i++) {
-      styles.push({
-        top: 0,
-        left: Math.floor(Math.random() * 800 - 400) + "px",
-        animationDelay: (Math.random() * 0.6 + 0.2).toFixed(2) + "s",
-        animationDuration: Math.floor(Math.random() * 8 + 2) + "s",
-      });
-    }
-    setMeteorStyles(styles);
+    const frameId = requestAnimationFrame(() => {
+      const styles: MeteorStyle[] = [];
+      for (let i = 0; i < number; i++) {
+        styles.push({
+          top: 0,
+          left: Math.floor(Math.random() * 800 - 400) + "px",
+          animationDelay: (Math.random() * 0.6 + 0.2).toFixed(2) + "s",
+          animationDuration: Math.floor(Math.random() * 8 + 2) + "s",
+        });
+      }
+      setMeteorStyles(styles);
+    });
+    return () => cancelAnimationFrame(frameId);
   }, [number]);
 
   return (

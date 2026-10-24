@@ -13,7 +13,7 @@ import {
 import { projects } from "@/data/projects";
 import { constructMetadata } from "@/lib/metadata";
 import { BrandIcon } from "@/components/ui/BrandIcon";
-import { ProjectJsonLd } from "@/components/seo/JsonLd";
+import { ProjectJsonLd, BreadcrumbsJsonLd } from "@/components/seo/JsonLd";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -40,8 +40,8 @@ export async function generateMetadata({
   }
 
   return constructMetadata({
-    title: project.name,
-    description: `${project.description} Built with ${project.technologies.slice(0, 3).join(", ")} by Pankaj Verma (@ivpankaj).`,
+    title: `${project.name} | Pankaj Verma Project Case Study`,
+    description: `${project.description} Engineered with ${project.technologies.slice(0, 4).join(", ")} by Pankaj Verma (@ivpankaj). Architectural highlights, key features, and source repository.`,
     canonicalUrl: `/projects/${project.slug}`,
   });
 }
@@ -54,9 +54,16 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Projects", url: "/projects" },
+    { name: project.name, url: `/projects/${project.slug}` },
+  ];
+
   return (
     <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-[var(--theme-bg)] min-h-screen">
       <ProjectJsonLd project={project} />
+      <BreadcrumbsJsonLd items={breadcrumbItems} />
       <div className="max-w-4xl mx-auto space-y-10">
         {/* Back Link */}
         <div>
@@ -175,6 +182,84 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </li>
             ))}
           </ul>
+        </div>
+
+        {/* Architectural Highlights & Engineering Context */}
+        {project.highlights && project.highlights.length > 0 && (
+          <div className="rounded-2xl bg-neutral-950 border border-white/[0.1] p-6 sm:p-8 space-y-4 hover:border-white/[0.2] transition-colors">
+            <h3 className="text-lg font-bold text-white tracking-tight">
+              Engineering Focus &amp; Impact
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              {project.highlights.map((highlight, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-xl bg-neutral-900/60 border border-white/[0.06] text-xs font-mono text-neutral-300 flex flex-col justify-between"
+                >
+                  <span className="text-neutral-500 text-[10px] uppercase">
+                    Core Highlight 0{idx + 1}
+                  </span>
+                  <span className="mt-2 font-medium text-neutral-200">
+                    {highlight}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Inter-Project Linking: Explore More Projects */}
+        <div className="pt-8 border-t border-white/[0.08] space-y-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-white tracking-tight">
+                Explore More Engineering Projects
+              </h3>
+              <p className="text-xs font-mono text-neutral-400 mt-1">
+                Other applications, developer tools, and architecture experiments by Pankaj Verma (@ivpankaj)
+              </p>
+            </div>
+            <Link
+              href="/projects"
+              className="text-xs font-mono text-neutral-400 hover:text-white transition-colors hidden sm:block"
+            >
+              View All ({projects.length}) →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {projects
+              .filter((p) => p.slug !== project.slug)
+              .map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/projects/${related.slug}`}
+                  className="group p-5 rounded-2xl bg-neutral-950 border border-white/[0.08] hover:border-white/[0.25] transition-all flex flex-col justify-between space-y-3"
+                >
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500">
+                      {related.category} • {related.year}
+                    </span>
+                    <h4 className="text-sm font-bold text-white group-hover:text-[var(--theme-text)] transition-colors mt-1">
+                      {related.name}
+                    </h4>
+                    <p className="text-xs text-neutral-400 line-clamp-2 mt-1">
+                      {related.description}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+                    {related.technologies.slice(0, 2).map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-900 text-neutral-400"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              ))}
+          </div>
         </div>
       </div>
     </div>

@@ -70,12 +70,14 @@ export function HeroSection() {
       <div className="absolute inset-0 h-full w-full bg-[var(--theme-bg)] bg-grid-white/[0.03] -z-10 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       <div className="max-w-6xl mx-auto w-full relative z-10 text-center flex flex-col items-center">
-        {/* Hero Title */}
+        {/* Hero Eyebrow & Main H1 */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--theme-card-border)] bg-[var(--theme-subtle-bg)] text-xs font-mono text-[var(--theme-text-muted)] mb-4">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span>Full-Stack Developer &amp; Systems Engineer</span>
+        </div>
+
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-[var(--theme-text)] max-w-5xl leading-[1.08]">
-          Hi, I&apos;m{" "}
-          <span className="text-[var(--theme-text)] inline-block">
-            {profile.name}
-          </span>
+          {profile.name}
         </h1>
 
         {/* Dynamic Aceternity FlipWords Headline */}
@@ -107,22 +109,29 @@ export function HeroSection() {
           <div className="absolute inset-0 w-full h-full bg-[var(--theme-bg)] [mask-image:radial-gradient(350px_100px_at_top,transparent_20%,black)] pointer-events-none" />
         </div>
 
-        {/* Subtitle */}
+        {/* Introductory Subtitle */}
         <p className="max-w-2xl text-sm sm:text-base md:text-lg text-[var(--theme-text-muted)] leading-relaxed font-normal">
-          {profile.subheading}
+          I&apos;m <strong className="font-semibold text-[var(--theme-text)]">Pankaj Verma</strong>, known online as <strong className="font-semibold text-[var(--theme-text)] font-mono">@{profile.handle}</strong>. I build high-performance web applications and digital platforms using Next.js, React, TypeScript, and Node.js. Explore my verified projects, technical work, and software engineering portfolio.
         </p>
 
         {/* Aceternity Moving Border CTA & Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-          <Link href="/#skills">
+          <Link href="/projects">
             <MovingBorderButton
               borderRadius="9999px"
               duration={3500}
               className="bg-[var(--theme-card-bg)] text-[var(--theme-text)] font-medium text-sm px-6 py-3 border-[var(--theme-card-border)] flex items-center gap-2 group cursor-pointer"
             >
-              <span>Explore Technical Stack</span>
+              <span>Explore Projects</span>
               <ArrowRight className="w-4 h-4 text-[var(--theme-text)] group-hover:translate-x-1 transition-transform" />
             </MovingBorderButton>
+          </Link>
+
+          <Link
+            href="/#skills"
+            className="px-5 py-3 rounded-full border border-[var(--theme-card-border)] bg-[var(--theme-subtle-bg)] text-[var(--theme-text)] hover:border-[var(--theme-card-hover)] transition-all text-sm font-medium shadow-sm"
+          >
+            Technical Stack
           </Link>
 
           <Link

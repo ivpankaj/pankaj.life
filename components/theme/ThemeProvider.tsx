@@ -77,14 +77,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeType>("light");
 
   useEffect(() => {
-    try {
-      const storedTheme = (localStorage.getItem("pankaj_theme") as ThemeType) || "light";
-      const validTheme = THEME_OPTIONS.some((t) => t.id === storedTheme) ? storedTheme : "light";
-      setThemeState(validTheme);
-      applyThemeToDom(validTheme);
-    } catch {
-      applyThemeToDom("light");
-    }
+    const frameId = requestAnimationFrame(() => {
+      try {
+        const storedTheme = (localStorage.getItem("pankaj_theme") as ThemeType) || "light";
+        const validTheme = THEME_OPTIONS.some((t) => t.id === storedTheme) ? storedTheme : "light";
+        setThemeState(validTheme);
+        applyThemeToDom(validTheme);
+      } catch {
+        applyThemeToDom("light");
+      }
+    });
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   const setTheme = (newTheme: ThemeType) => {

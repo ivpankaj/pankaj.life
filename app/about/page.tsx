@@ -11,16 +11,23 @@ import {
 } from "lucide-react";
 import { profile } from "@/data/profile";
 import { constructMetadata } from "@/lib/metadata";
+import { BreadcrumbsJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = constructMetadata({
-  title: `About ${profile.name}`,
-  description: `Learn about Pankaj Verma (@${profile.handle}) — Software Developer & Full-Stack Engineer based in Noida (Delhi NCR), India. Engineering approach, technical philosophy, and focus areas.`,
+  title: `About ${profile.name} | Software Developer & Full-Stack Engineer`,
+  description: `Learn about Pankaj Verma (@${profile.handle}) — software developer and full-stack engineer. Technical approach, engineering philosophy, verified skills, and focus areas.`,
   canonicalUrl: "/about",
 });
 
 export default function AboutPage() {
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "About", url: "/about" },
+  ];
+
   return (
     <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-[var(--theme-bg)] min-h-screen">
+      <BreadcrumbsJsonLd items={breadcrumbItems} />
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Clean Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">

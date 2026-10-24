@@ -1,5 +1,5 @@
 "use client";
-import React, { useId, useEffect, useState } from "react";
+import React, { useId, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 interface Sparkle {
@@ -31,17 +31,12 @@ export const SparklesCore = (props: {
     particleColor = "#ffffff",
     particleDensity = 80,
   } = props;
-  const [init, setInit] = useState(false);
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const generatedId = useId();
   const canvasId = id || generatedId;
 
   useEffect(() => {
-    setInit(true);
-  }, []);
-
-  useEffect(() => {
-    if (!init || !canvasRef.current) return;
+    if (!canvasRef.current) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -105,7 +100,7 @@ export const SparklesCore = (props: {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [init, background, minSize, maxSize, speed, particleColor, particleDensity]);
+  }, [background, minSize, maxSize, speed, particleColor, particleDensity]);
 
   return (
     <canvas

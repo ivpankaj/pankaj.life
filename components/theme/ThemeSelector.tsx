@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme, ThemeType, THEME_OPTIONS } from "./ThemeProvider";
+import { useTheme } from "./ThemeProvider";
 import { ChevronDown, Check, Sun, Sparkles, Shield, Moon, Sunrise, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 

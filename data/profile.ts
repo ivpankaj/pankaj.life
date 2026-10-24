@@ -18,12 +18,12 @@ export const profile: Profile = {
   name: "Pankaj Verma",
   displayName: "Pankaj",
   handle: "ivpankaj",
-  domain: "https://www.pankaj.life",
+  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://www.pankaj.life",
   tagline: "Exploring Technology. Building Digital Experiences.",
   subheading:
-    "A personal space for my technology journey, digital projects, experiments, skills, and everything I build on the internet.",
+    "Personal developer portfolio and technical projects by Pankaj Verma (@ivpankaj) — Full-stack engineer exploring modern web architectures, Next.js, React, and TypeScript.",
   aboutIntro:
-    "I am an enthusiastic technologist and developer who loves exploring modern web frameworks, building delightful digital products, and experimenting with software architecture. Driven by curiosity, I enjoy turning ideas into performant, beautifully styled web applications.",
+    "I am Pankaj Verma, known online as ivpankaj. I am a full-stack developer and software engineer who builds modern web applications, experiments with scalable architectures, and crafts high-performance digital tools using Next.js, React, TypeScript, and Node.js.",
   interests: [
     "Full-Stack Web Development",
     "Modern Next.js & React Architectures",

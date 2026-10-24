@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FloatingNav, NavItem } from "@/components/ui/floating-navbar";
-import { Home, User, Briefcase, Cpu, Award, Mail } from "lucide-react";
+import { User, Briefcase, Cpu, BookOpen } from "lucide-react";
 
 const navItems: NavItem[] = [
   {
@@ -14,6 +14,16 @@ const navItems: NavItem[] = [
     name: "Skills",
     link: "/#skills",
     icon: <Cpu className="h-4 w-4 text-[var(--theme-text)]" />,
+  },
+  {
+    name: "Projects",
+    link: "/projects",
+    icon: <Briefcase className="h-4 w-4 text-[var(--theme-text)]" />,
+  },
+  {
+    name: "Blog",
+    link: "/blog",
+    icon: <BookOpen className="h-4 w-4 text-[var(--theme-text)]" />,
   },
 ];
 
